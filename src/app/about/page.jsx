@@ -39,7 +39,7 @@ export default function About() {
 
           <MotionP className='text-secondary leading-relaxed'>
             I'm a UI/UX Designer & Front-end Developer, currently finishing my
-            Bachelor's in Information System at ITENAS (expected 2026). I bridge
+            Bachelor's in Information System at ITENAS (expected Oct 2026). I bridge
             the gap between complex functionality and intuitive design — and I
             bring a rare mix: a background in luxury hospitality (The Ritz-
             Carlton Jakarta) and 4+ years of freelance + agency UI/UX work on

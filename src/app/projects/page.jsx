@@ -5,46 +5,46 @@ import SafeImage from "@/components/SafeImage";
 
 const projects = [
   {
-    title: "FAZA ARCHITECT",
+    title: "Me+Lia — Redesign (Client, WaitWhatWeb)",
     description:
-      "A project portfolio aimed at architecture that focuses on conveying a message for every work it has ever made. Focused on creating an UI that harmonized with the home design of the client's portfolio.",
-    image: "/projects/faza-architect.jpg",
+      "Redesigned Me+Lia, a Melbourne sustainable loungewear store, using user-centred design. Ran client interviews, built 2 user personas, a user journey map, a competitor + SWOT analysis, and 4 user flows from browsing to checkout. Produced brand guidelines and low-/high-fidelity Figma prototypes, then ran usability testing with UEQ on 30+ respondents to set priorities.",
+    image: "/projects/me-lia.svg",
+    tags: ["UI/UX Design", "E-commerce", "User Research", "Figma"],
+  },
+  {
+    title: "Faza Architect — Portfolio UI",
+    description:
+      "Designed the UI for an architecture studio's portfolio site, mirroring the studio's own design language: a filterable, sortable project gallery, project detail pages and an About page.",
+    image: "/projects/faza-architect.svg",
     tags: ["UI Design", "Portfolio", "Architecture"],
   },
   {
-    title: "MyRT",
+    title: "Bellrock Artisan Coffee — Landing Page + Storefront",
     description:
-      "An innovative solution designed to facilitate population data management at the RT level. Mobile-based application that makes it easy for village heads to manage information about the population in their area.",
-    image: "/projects/myrt.jpg",
-    tags: ["Mobile App", "Data Management", "Community"],
-  },
-  {
-    title: "Bellrock Artisan Coffee",
-    description:
-      "A digital transformation project for a specialty coffee brand, creating a robust online presence through website development. Responsible for crafting compelling landing pages, storefronts, and shaping the overall branding identity.",
-    image: "/projects/bellrock.jpg",
+      "Took a formerly offline specialty coffee brand online: designed a compelling landing page, an online storefront and the overall brand identity.",
+    image: "/projects/bellrock.svg",
     tags: ["Web Development", "E-commerce", "Branding"],
   },
   {
-    title: "BNI Mobile Banking Re-Design",
+    title: "TikTok Shop — Emotional Design Study",
     description:
-      "A UI/UX redesign project for BNI Mobile Banking, analyzing shortcomings and implementing new designs that better meet Gestalt standards and principles.",
-    image: "/projects/bni.jpg",
-    tags: ["UI/UX Design", "Mobile Banking", "Fintech"],
+      "Mixed-methods UX study of TikTok Shop (Indonesia's leading social commerce app): a survey of 193 active users across 13 UX-Tips dimensions and 29 items, followed by 5 in-depth interviews. Validated the measurement model with PLS-SEM in SmartPLS 4 (outer loadings 0.731-0.919, AVE 0.645-0.835) and compared pragmatic vs hedonic UX with a Wilcoxon signed-rank test (p = 0.034). Mapped user emotion across 5 shopping touchpoints with the Self-Assessment Manikin and coded interviews with the Framework Method. Found the emotional peak at order status, and traced negative experiences to aesthetics and physical characteristics - concrete design recommendations. Accepted at JISICS.",
+    image: "/projects/tiktok-shop.svg",
+    tags: ["UX Research", "Mixed Methods", "PLS-SEM", "Journal"],
   },
   {
-    title: "Vino Vault",
+    title: "Dutra Parahyangan Warehouse - Front-end (Capstone)",
     description:
-      "A software engineering course project focused on pure PHP, HTML, CSS and CRUD operations. Responsible for the design and implementation of HTML and CSS.",
-    image: "/projects/vino-vault.jpg",
-    tags: ["PHP", "HTML", "CSS", "CRUD"],
+      "Built the front end of a web-based warehouse management system (goods receiving, dispatch, inter-branch requests, returns, real-time stock monitoring). Implemented 27 screens across 12 modules in Next.js, plus PDF export and role-based access control. Turned Figma designs into a responsive UI from use case, ERD and activity diagrams, in a cross-functional team. Passed all 33 black-box test scenarios.",
+    image: "/projects/warehouse.svg",
+    tags: ["Front-end", "Next.js", "Warehouse System"],
   },
   {
-    title: "DRAMM",
+    title: "CV Siliwangi Nusantara Telecom - Company Profile",
     description:
-      "A web development information system course project focused on Laravel CRUD operations. Responsible for the design aspects of the project.",
-    image: "/projects/dramm.jpg",
-    tags: ["Laravel", "Web Development", "Information System"],
+      "Designed and built a company profile website for a telecom engineering contractor under a signed agreement, turning a 15-page printed profile into web pages in 8 days, with progress updates and post-launch support.",
+    image: "/projects/siliwangi.svg",
+    tags: ["Web Design", "Front-end", "Freelance"],
   },
 ];
 
