@@ -8,7 +8,7 @@ const projects = [
     title: "Me+Lia — Redesign (Client, WaitWhatWeb)",
     description:
       "Redesigned Me+Lia, a Melbourne sustainable loungewear store, using user-centred design. Ran client interviews, built 2 user personas, a user journey map, a competitor + SWOT analysis, and 4 user flows from browsing to checkout. Produced brand guidelines and low-/high-fidelity Figma prototypes, then ran usability testing with UEQ on 30+ respondents; results showed a ~30% increase in user satisfaction and improved navigation comfort and visual appeal, with low/high-fidelity prototypes receiving positive feedback.",
-    image: "/projects/me-lia.svg",
+    image: "/projects/me-lia.png",
     tags: ["UI/UX Design", "E-commerce", "User Research", "Figma"],
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     title: "Bellrock Artisan Coffee — Landing Page + Storefront",
     description:
       "Took a formerly offline specialty coffee brand online: designed a compelling landing page, an online storefront and the overall brand identity.",
-    image: "/projects/bellrock.svg",
+    image: "/projects/bellrock.png",
     tags: ["Web Development", "E-commerce", "Branding"],
   },
   {
