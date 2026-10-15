@@ -38,15 +38,25 @@ export default function About() {
           </MotionH1>
 
           <MotionP className='text-secondary leading-relaxed'>
-            With a few years of experience in the wine and spirit industry,{" "}
-            <span className='italic text-primary'>
-              I've developed a unique perspective on user experience.
-            </span>
+            I'm a UI/UX Designer & Front-end Developer, currently finishing my
+            Bachelor's in Information System at ITENAS (expected 2026). I bridge
+            the gap between complex functionality and intuitive design — and I
+            bring a rare mix: a background in luxury hospitality (The Ritz-
+            Carlton Jakarta) and 4+ years of freelance + agency UI/UX work on
+            10+ client brands.
           </MotionP>
 
           <MotionP className='text-secondary leading-relaxed'>
-            I'm currently pursuing a Bachelor's degree in Information System at
-            ITENAS, focusing on UI/UX Design and Web Development.
+            I take products from UX research, wireframes and Figma prototypes
+            through to responsive, production front-ends built with HTML, CSS,
+            JavaScript, React, Next.js, WordPress, Shopify and Laravel — so design
+            is handed off to real code, not left in a slide.
+          </MotionP>
+
+          <MotionP className='text-secondary leading-relaxed'>
+            I ground decisions in research: user interviews, surveys (193+
+            respondents), journey maps, personas, usability testing (UEQ) and
+            PLS-SEM-validated instruments.
           </MotionP>
 
           <MotionDiv className='p-6 bg-surface border-l-4 border-accent rounded-r-xl'>
@@ -57,24 +67,10 @@ export default function About() {
           </MotionDiv>
 
           <MotionP className='text-secondary leading-relaxed'>
-            My background in fine dining has taught me the importance of
-            attention to detail and creating memorable experiences. Now, I'm
-            channeling that same dedication into designing and developing
-            digital solutions that truly serve users' needs.
-          </MotionP>
-
-          <MotionP className='text-secondary leading-relaxed'>
-            I'm proficient in React.js, CSS, and various UX design tools. My
-            experience includes both technical certifications from HackerRank
-            and practical knowledge in SEO and user experience design from
-            Coursera.
-          </MotionP>
-
-          <MotionP className='text-secondary leading-relaxed'>
-            Currently based in West Java, Indonesia, I'm actively working on
-            expanding my skills in data structures, algorithms, and
-            problem-solving while pursuing my degree at Institut Teknologi
-            Nasional (ITENAS).
+            My background in fine dining taught me the importance of attention to
+            detail and creating memorable experiences. Now I channel that same
+            dedication into designing and developing digital solutions that
+            truly serve users' needs.
           </MotionP>
         </MotionDiv>
       </div>
