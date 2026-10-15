@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Me+Lia — Redesign (Client, WaitWhatWeb)",
     description:
-      "Redesigned Me+Lia, a Melbourne sustainable loungewear store, using user-centred design. Ran client interviews, built 2 user personas, a user journey map, a competitor + SWOT analysis, and 4 user flows from browsing to checkout. Produced brand guidelines and low-/high-fidelity Figma prototypes, then ran usability testing with UEQ on 30+ respondents to set priorities.",
+      "Redesigned Me+Lia, a Melbourne sustainable loungewear store, using user-centred design. Ran client interviews, built 2 user personas, a user journey map, a competitor + SWOT analysis, and 4 user flows from browsing to checkout. Produced brand guidelines and low-/high-fidelity Figma prototypes, then ran usability testing with UEQ on 30+ respondents; results showed a ~30% increase in user satisfaction and improved navigation comfort and visual appeal, with low/high-fidelity prototypes receiving positive feedback.",
     image: "/projects/me-lia.svg",
     tags: ["UI/UX Design", "E-commerce", "User Research", "Figma"],
   },
@@ -28,14 +28,14 @@ const projects = [
   {
     title: "TikTok Shop — Emotional Design Study",
     description:
-      "Mixed-methods UX study of TikTok Shop (Indonesia's leading social commerce app): a survey of 193 active users across 13 UX-Tips dimensions and 29 items, followed by 5 in-depth interviews. Validated the measurement model with PLS-SEM in SmartPLS 4 (outer loadings 0.731-0.919, AVE 0.645-0.835) and compared pragmatic vs hedonic UX with a Wilcoxon signed-rank test (p = 0.034). Mapped user emotion across 5 shopping touchpoints with the Self-Assessment Manikin and coded interviews with the Framework Method. Found the emotional peak at order status, and traced negative experiences to aesthetics and physical characteristics - concrete design recommendations. Accepted at JISICS.",
+      "Mixed-methods UX study of TikTok Shop (Indonesia's leading social commerce app): a survey of 193 active users across 13 UX-Tips dimensions and 29 items, followed by 5 in-depth interviews. Validated the measurement model with PLS-SEM in SmartPLS 4 (outer loadings 0.731-0.919, AVE 0.645-0.835) and compared pragmatic vs hedonic UX with a Wilcoxon signed-rank test (p = 0.034). Mapped user emotion across 5 shopping touchpoints with the Self-Assessment Manikin and coded interviews with the Framework Method. Found the emotional peak at order status, and traced negative experiences to aesthetics and physical characteristics - concrete design recommendations. Accepted at JISICS. Five shopping touchpoints were rated with the Self-Assessment Manikin; qualitative interviews were coded with the Framework Method; resulting recommendations concentrated on strengthening the order-status moment and refining aesthetics and physical characteristics.",
     image: "/projects/tiktok-shop.svg",
     tags: ["UX Research", "Mixed Methods", "PLS-SEM", "Journal"],
   },
   {
     title: "Dutra Parahyangan Warehouse - Front-end (Capstone)",
     description:
-      "Built the front end of a web-based warehouse management system (goods receiving, dispatch, inter-branch requests, returns, real-time stock monitoring). Implemented 27 screens across 12 modules in Next.js, plus PDF export and role-based access control. Turned Figma designs into a responsive UI from use case, ERD and activity diagrams, in a cross-functional team. Passed all 33 black-box test scenarios.",
+      "Built the front end of a web-based warehouse management system (goods receiving, dispatch, inter-branch requests, returns, real-time stock monitoring). Implemented 27 screens across 12 modules in Next.js, plus PDF export and role-based access control. Turned Figma designs into a responsive UI from use case, ERD and activity diagrams, in a cross-functional team. Passed all 33 black-box test scenarios. Poster-verified features: tracking incoming/outgoing stock, inter-branch requests, returns, PPSM, real-time stock monitoring, and daily/weekly reporting.",
     image: "/projects/warehouse.svg",
     tags: ["Front-end", "Next.js", "Warehouse System"],
   },

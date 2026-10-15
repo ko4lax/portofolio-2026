@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionDiv, MotionH1, MotionP } from "@/components/motion";
+import { MotionDiv, MotionH1, MotionH2, MotionP } from "@/components/motion";
 import SafeImage from "@/components/SafeImage";
 
 export default function About() {
@@ -66,13 +66,31 @@ export default function About() {
             </p>
           </MotionDiv>
 
-          <MotionP className='text-secondary leading-relaxed'>
-            My background in fine dining taught me the importance of attention to
-            detail and creating memorable experiences. Now I channel that same
-            dedication into designing and developing digital solutions that
-            truly serve users' needs.
-          </MotionP>
-        </MotionDiv>
+          <MotionDiv className='mt-10 space-y-4'>
+            <MotionH2 className='text-2xl font-bold text-primary'>Experience</MotionH2>
+            <MotionP className='text-secondary leading-relaxed'>
+              Senior UI/UX Designer & Front-end Developer at WaitWhatWeb
+              (PT Stellar Kreavi Digital, Jul-Sep 2024, Bundung, on-site):
+              designed UI/UX for 10 client brands across fashion, beauty, and
+              food (Me+Lia, Brasov, MyRubylicious, Wingman Denim, Junkard Co,
+              Nokha, Supergrain, Tragen, Trackerindo, Cartenz Tactical), delivered
+              front-ends in WordPress, Laravel, React, and Shopify, and ran
+              UEQ-based usability tests on 30+ respondents.
+            </MotionP>
+            <MotionP className='text-secondary leading-relaxed'>
+              UI Designer & Front-end Developer at Digitalkultr (self-employed,
+              May 2022-Present): end-to-end web and brand delivery for
+              architecture (Faza Architect) and food-and-beverage (Bellrock)
+              clients.
+            </MotionP>
+            <MotionP className='text-secondary leading-relaxed'>
+              Server at The Union Group (Roma Osteria & Bar; Bistecca, Jan 2020-
+              Jan 2021, Jakarta) and Buffet Waiter (internship) at The Ritz-
+              Carlton Jakarta, Mega Kuningan (Jan-Jul 2019): luxury hospitality
+              grounding in attention to detail, brand standards, and guest empathy.
+            </MotionP>
+          </MotionDiv>
+          </MotionDiv>
       </div>
     </main>
   );
