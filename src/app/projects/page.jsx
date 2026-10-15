@@ -46,6 +46,13 @@ const projects = [
     image: "/projects/siliwangi.svg",
     tags: ["Web Design", "Front-end", "Freelance"],
   },
+  {
+    title: "WaitWhatWeb — 9 Client Brands (E-commerce & Landing)",
+    description:
+      "During the WaitWhatWeb internship, delivered UI/UX design and front-ends (WordPress, Laravel, React, Shopify) for 9 brands: Brasov (beauty e-commerce), Supergrain (landing page), Junkard Co (rebrand), Me+Lia (redesign and UEQ usability study), Wingman Denim, MyRubylicious, Nokha, Tragen, Trackerindo, and Cartenz Tactical. Scope covered 6 homepage refreshes and 3 full redesigns.",
+    image: "/projects/waitwhatweb.svg",
+    tags: ["UI/UX Design", "E-commerce", "Multi-brand", "WordPress"],
+  },
 ];
 
 export default function Projects() {
