@@ -1,7 +1,7 @@
 "use client";
 
 import { MotionDiv, MotionH1, MotionH2, MotionP } from "@/components/motion";
-import SafeImage from "@/components/SafeImage";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -13,9 +13,12 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className='w-full flex justify-center mb-8'>
-          <SafeImage
-            src='/banner-placeholder.jpg'
-            alt='Banner'
+          <Image
+            src='/images/banner.jpg'
+            alt='Hanif portrait alongside Me+Lia and Bellrock storefront work'
+            width={1600}
+            height={640}
+            sizes='(max-width: 768px) 100vw, 1024px'
             className='w-full max-w-5xl h-72 object-cover rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-700'
           />
         </MotionDiv>
@@ -70,7 +73,7 @@ export default function About() {
             <MotionH2 className='text-2xl font-bold text-primary'>Experience</MotionH2>
             <MotionP className='text-secondary leading-relaxed'>
               Senior UI/UX Designer & Front-end Developer at WaitWhatWeb
-              (PT Stellar Kreavi Digital, Jul-Sep 2024, Bundung, on-site):
+              (PT Stellar Kreavi Digital, Jul-Sep 2024, Bandung, on-site):
               designed UI/UX for 10 client brands across fashion, beauty, and
               food (Me+Lia, Brasov, MyRubylicious, Wingman Denim, Junkard Co,
               Nokha, Supergrain, Tragen, Trackerindo, Cartenz Tactical), delivered

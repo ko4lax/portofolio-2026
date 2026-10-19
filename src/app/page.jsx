@@ -1,13 +1,12 @@
 "use client";
 
 import {
-  MotionButton,
   MotionDiv,
   MotionH1,
   MotionH2,
   MotionP,
 } from "@/components/motion";
-import SafeImage from "@/components/SafeImage";
+import Image from "next/image";
 import Link from "next/link";
 import {
   FaFigma,
@@ -22,7 +21,6 @@ import {
   FaLinkedin,
   FaDribbble,
 } from "react-icons/fa";
-import { SiNextdotjs } from "react-icons/si";
 
 export default function Home() {
   const skills = [
@@ -59,9 +57,12 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className='relative group'>
             <div className='absolute -inset-1 bg-border rounded-2xl group-hover:bg-accent/10 transition-colors duration-200'></div>
-            <SafeImage
+            <Image
               src='/images/profile.jpg'
-              alt='Hanif Nugraha'
+              alt='Hanif Nugraha, UI/UX designer and front-end developer'
+              width={512}
+              height={640}
+              priority
               className='relative w-64 h-80 object-cover rounded-xl shadow-xl grayscale hover:grayscale-0 hover:shadow-2xl transition-all duration-200'
             />
           </MotionDiv>
@@ -84,21 +85,15 @@ export default function Home() {
               complex problems into intuitive, human-centred digital experiences.
             </p>
             <div className='flex flex-wrap gap-4'>
-              <Link href='/projects'>
-                <MotionButton
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className='btn-primary px-8 py-4 text-lg font-bold'>
-                  View Projects
-                </MotionButton>
+              <Link
+                href='/projects'
+                className='btn-primary inline-block px-8 py-4 text-lg font-bold hover:scale-[1.02] transition-transform'>
+                View Projects
               </Link>
-              <Link href='/contact'>
-                <MotionButton
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className='btn-secondary px-8 py-4 text-lg font-bold'>
-                  Let's Talk
-                </MotionButton>
+              <Link
+                href='/contact'
+                className='btn-secondary inline-block px-8 py-4 text-lg font-bold hover:scale-[1.02] transition-transform'>
+                Let's Talk
               </Link>
             </div>
           </MotionDiv>
@@ -253,13 +248,10 @@ export default function Home() {
               I'm always open to discussing new opportunities, creative ideas or
               original projects.
             </p>
-            <Link href='/contact'>
-              <MotionButton
-                whileHover={{ scale: 1.05, backgroundColor: "var(--accent-dark)" }}
-                whileTap={{ scale: 0.95 }}
-                className='btn-primary px-12 py-5 text-xl font-bold shadow-xl shadow-accent/20'>
-                Get in Touch
-              </MotionButton>
+            <Link
+              href='/contact'
+              className='btn-primary inline-block px-12 py-5 text-xl font-bold shadow-xl shadow-accent/20 hover:scale-105 transition-transform'>
+              Get in Touch
             </Link>
             <div className='mt-12 flex justify-center space-x-8'>
               <a

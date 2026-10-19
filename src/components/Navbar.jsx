@@ -72,11 +72,8 @@ export default function Navbar() {
 
             {/* Resume Download */}
             <a
-              href='#'
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Resume download coming soon!");
-              }}
+              href='/resume.pdf'
+              download='Hanif-Nugraha-Resume-EN.pdf'
               className='flex items-center text-secondary hover:text-primary transition-colors duration-200'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
               Resume
@@ -171,11 +168,8 @@ export default function Navbar() {
               </a>
             </div>
             <a
-              href='#'
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Resume download coming soon!");
-              }}
+              href='/resume.pdf'
+              download='Hanif-Nugraha-Resume-EN.pdf'
               className='flex items-center text-accent font-medium'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
               Resume
