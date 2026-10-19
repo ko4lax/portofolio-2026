@@ -20,13 +20,13 @@ const poppins = Poppins({
 export const metadata = {
   metadataBase: new URL("https://ko4lax.me"),
   title: {
-    default: "Hanif Nugraha â€” UI/UX Designer & Front-end Developer",
-    template: "%s â€” Hanif Nugraha",
+    default: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
+    template: "%s — Hanif Nugraha",
   },
   description:
     "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
   openGraph: {
-    title: "Hanif Nugraha â€” UI/UX Designer & Front-end Developer",
+    title: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
     description:
       "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
     url: "https://ko4lax.me",
@@ -56,4 +56,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
