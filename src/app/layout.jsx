@@ -17,9 +17,27 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "UI/UX Designer & Frontend Developer Portfolio",
+  metadataBase: new URL("https://ko4lax.me"),
+  title: {
+    default: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
+    template: "%s — Hanif Nugraha",
+  },
   description:
-    "A minimalist portfolio showcasing UI/UX design and frontend development work",
+    "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
+  openGraph: {
+    title: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
+    description:
+      "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
+    url: "https://ko4lax.me",
+    siteName: "Hanif Nugraha",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {
