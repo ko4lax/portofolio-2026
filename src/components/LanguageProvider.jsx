@@ -35,4 +35,3 @@ export function localize(value, language) {
   if (value && typeof value === "object" && value.en && value.id) return value[language];
   return value;
 }
-
