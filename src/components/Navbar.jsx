@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaDribbble, FaLinkedin } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { text, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +22,9 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
+    { name: text.nav.about, href: "/about" },
+    { name: text.nav.projects, href: "/projects" },
+    { name: text.nav.contact, href: "/contact" },
   ];
 
   const menuVariants = {
@@ -76,8 +78,11 @@ export default function Navbar() {
               download='Hanif-Nugraha-Resume-EN.pdf'
               className='flex items-center text-secondary hover:text-primary transition-colors duration-200'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
-              Resume
+              {text.nav.resume}
             </a>
+            <button type='button' onClick={toggleLanguage} aria-label='Switch language' className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
+              {text.nav.language}
+            </button>
 
             {/* Social Links */}
             <a
@@ -172,11 +177,15 @@ export default function Navbar() {
               download='Hanif-Nugraha-Resume-EN.pdf'
               className='flex items-center text-accent font-medium'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
-              Resume
+              {text.nav.resume}
             </a>
+            <button type='button' onClick={toggleLanguage} aria-label='Switch language' className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
+              {text.nav.language}
+            </button>
           </div>
         </div>
       </MotionDiv>
     </MotionNav>
   );
 }
+

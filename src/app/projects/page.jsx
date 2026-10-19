@@ -1,78 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { MotionDiv, MotionH1, MotionP } from "@/components/motion";
+import { useLanguage } from "@/components/LanguageProvider";
 import { projects } from "@/data/projects";
 
 export default function Projects() {
-  return (
-    <main className='min-h-screen bg-background pt-24 pb-20 px-4'>
-      <div className='max-w-6xl mx-auto'>
-        <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className='mb-12'>
-          <MotionH1 className='text-4xl md:text-5xl font-bold text-primary mb-4'>
-            Selected Work
-          </MotionH1>
-          <MotionP className='text-xl text-secondary max-w-2xl'>
-            UX research, interface design and front-end builds — with the numbers
-            behind each one.
-          </MotionP>
-        </MotionDiv>
-
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {projects.map((project, index) => (
-            <MotionDiv
-              key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className='group flex flex-col bg-surface rounded-2xl border border-border overflow-hidden hover:shadow-xl transition-all duration-200'>
-              <div className='aspect-video overflow-hidden'>
-                <Image
-                  src={project.image}
-                  alt=''
-                  width={1600}
-                  height={900}
-                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                  className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-105'
-                />
-              </div>
-              <div className='p-6 flex flex-col flex-grow'>
-                <p className='text-xs uppercase tracking-widest text-secondary mb-2'>
-                  {project.kicker}
-                </p>
-                <h3 className='text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-200'>
-                  {project.title}
-                </h3>
-                <MotionP className='text-secondary text-sm leading-relaxed mb-4 flex-grow'>
-                  {project.summary}
-                </MotionP>
-                <dl className='flex flex-wrap gap-x-6 gap-y-1 mb-6'>
-                  {project.metrics.map((metric) => (
-                    <div key={metric.label} className='text-xs'>
-                      <dt className='text-secondary'>{metric.label}</dt>
-                      <dd className='font-semibold text-primary'>{metric.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <div className='flex flex-wrap gap-2'>
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className='px-3 py-1 bg-surface text-secondary border border-border rounded-full text-xs font-medium'>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </MotionDiv>
-          ))}
-        </div>
-      </div>
-    </main>
-  );
+  const { language } = useLanguage();
+  const [selected, setSelected] = useState(null);
+  useEffect(() => { document.body.style.overflow = selected ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [selected]);
+  const labels = language === "id" ? { title: "Proyek Pilihan", intro: "Riset UX, desain antarmuka, dan frontend dengan detail di balik setiap karya.", close: "Tutup", role: "Peran", year: "Tahun", details: "Detail proyek", noImage: "Detail proyek" } : { title: "Selected Work", intro: "UX research, interface design, and frontend builds with the evidence behind each one.", close: "Close", role: "Role", year: "Year", details: "Project detail", noImage: "Project detail" };
+  return <main className='min-h-screen bg-background pt-24 pb-20 px-4'><div className='max-w-6xl mx-auto'><MotionDiv initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className='mb-12'><MotionH1 className='text-4xl md:text-5xl font-bold mb-4'>{labels.title}</MotionH1><MotionP className='text-xl text-secondary max-w-2xl'>{labels.intro}</MotionP></MotionDiv><div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>{projects.map((project, index) => <button type='button' aria-label={`${labels.details}: ${project.title}`} key={project.slug} onClick={() => setSelected(project)} className='group text-left flex flex-col bg-surface rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all'><div className='aspect-video overflow-hidden bg-neutral-100 flex items-center justify-center'>{project.image ? <Image src={project.image} alt='' width={1600} height={900} sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' className='w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all' /> : <span className='text-sm uppercase tracking-widest text-secondary'>{labels.noImage}</span>}</div><div className='p-6 flex flex-col flex-grow'><p className='text-xs uppercase tracking-widest text-secondary mb-2'>{project.kicker}</p><h2 className='text-xl font-bold mb-3 group-hover:text-accent'>{project.title}</h2><p className='text-secondary text-sm leading-relaxed mb-4 flex-grow'>{project.summary}</p><dl className='flex flex-wrap gap-x-6 gap-y-2'>{project.metrics.map((metric) => <div key={metric.label} className='text-xs'><dt className='text-secondary'>{metric.label}</dt><dd className='font-semibold'>{metric.value}</dd></div>)}</dl><div className='flex flex-wrap gap-2 mt-5'>{project.tags.map((tag) => <span key={tag} className='px-3 py-1 bg-surface text-secondary border border-border rounded-full text-xs font-medium'>{tag}</span>)}</div></div></button>)}</div></div>{selected && <div role='dialog' aria-modal='true' aria-label={selected.title} className='fixed inset-0 z-[60] bg-black/60 p-4 flex items-center justify-center' onClick={() => setSelected(null)}><div className='w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-background p-6 md:p-10' onClick={(event) => event.stopPropagation()}><div className='flex justify-between gap-4 items-start'><div><p className='text-xs uppercase tracking-widest text-secondary'>{selected.kicker}</p><h2 className='text-3xl font-bold mt-2'>{selected.title}</h2></div><button type='button' onClick={() => setSelected(null)} className='rounded-full border border-border px-3 py-1 text-sm'>{labels.close}</button></div>{selected.image && <Image src={selected.image} alt='' width={1600} height={900} className='w-full aspect-video object-cover rounded-2xl mt-6' />}<p className='text-secondary leading-relaxed mt-6'>{selected.details}</p><div className='grid grid-cols-2 gap-4 mt-8'><div><span className='block text-xs text-secondary'>{labels.role}</span><strong>{selected.role}</strong></div><div><span className='block text-xs text-secondary'>{labels.year}</span><strong>{selected.year}</strong></div>{selected.metrics.map((metric) => <div key={metric.label}><span className='block text-xs text-secondary'>{metric.label}</span><strong>{metric.value}</strong></div>)}</div></div></div>}</main>;
 }
+
