@@ -1,4 +1,5 @@
 import ClientSplashScreen from "@/components/ClientSplashScreen";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import Navbar from "@/components/Navbar";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
@@ -19,13 +20,13 @@ const poppins = Poppins({
 export const metadata = {
   metadataBase: new URL("https://ko4lax.me"),
   title: {
-    default: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
-    template: "%s — Hanif Nugraha",
+    default: "Hanif Nugraha â€” UI/UX Designer & Front-end Developer",
+    template: "%s â€” Hanif Nugraha",
   },
   description:
     "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
   openGraph: {
-    title: "Hanif Nugraha — UI/UX Designer & Front-end Developer",
+    title: "Hanif Nugraha â€” UI/UX Designer & Front-end Developer",
     description:
       "UI/UX designer and front-end developer in Bandung. UX research, Figma, React and Next.js.",
     url: "https://ko4lax.me",
@@ -46,10 +47,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${poppins.variable} min-h-screen bg-background text-primary`}
         suppressHydrationWarning>
-        <ClientSplashScreen />
-        <Navbar />
-        <div className='min-h-screen bg-background'>{children}</div>
+        <LanguageProvider>
+          <ClientSplashScreen />
+          <Navbar />
+          <div className='min-h-screen bg-background'>{children}</div>
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+

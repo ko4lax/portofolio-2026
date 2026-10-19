@@ -1,100 +1,17 @@
 "use client";
 
-import { MotionDiv, MotionH1, MotionH2, MotionP } from "@/components/motion";
 import Image from "next/image";
+import { MotionDiv, MotionH1, MotionH2 } from "@/components/motion";
+import { useLanguage } from "@/components/LanguageProvider";
+
+const about = {
+  en: { title: "Hi, I'm Hanif", intro: "I'm a UI/UX Designer and Front-end Developer completing my Bachelor's degree in Information Systems at the National Institute of Technology Bandung. I bring more than four years of freelance and agency work, alongside a hospitality background that shaped my attention to detail and empathy.", craft: "I take products from research, interviews, personas, journey maps, wireframes, and Figma prototypes through to responsive frontends in HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, and Laravel.", experience: "Experience", digitalkultr: "At Digitalkultr, I design websites and brand identities for architecture and food-and-beverage clients. Faza Architect included a filterable portfolio gallery, project detail pages, and an About page; Bellrock Artisan Coffee included a brand identity, landing pages, and an online storefront.", waitwhat: "At WaitWhatWeb, I designed UI/UX for ten client brands across fashion, beauty, and food. The Me+Lia redesign included two personas, a journey map, four user flows, responsive Figma prototypes, and UEQ testing with more than 30 respondents.", research: "My research practice includes a 193-user TikTok Shop study with PLS-SEM and five interviews, plus the Dutra Parahyangan warehouse capstone, where I built the frontend for 27 screens across 12 modules and helped the team pass 33 black-box scenarios.", hospitality: "Earlier roles at The Union Group and The Ritz-Carlton Jakarta strengthened my service mindset, brand discipline, and ability to stay attentive under pressure." },
+  id: { title: "Hai, saya Hanif", intro: "Saya UI/UX Designer dan Front-end Developer yang sedang menyelesaikan Sarjana Sistem Informasi di Institut Teknologi Nasional Bandung. Saya memiliki pengalaman freelance dan agensi lebih dari empat tahun, ditambah latar hospitality yang membentuk perhatian pada detail dan empati saya.", craft: "Saya mengerjakan produk dari riset, wawancara, persona, customer journey, wireframe, dan prototipe Figma hingga frontend responsif dengan HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, dan Laravel.", experience: "Pengalaman", digitalkultr: "Di Digitalkultr, saya merancang website dan identitas brand untuk klien arsitektur serta food-and-beverage. Faza Architect mencakup galeri portfolio yang dapat difilter, halaman detail proyek, dan halaman About; Bellrock Artisan Coffee mencakup identitas brand, landing page, dan storefront online.", waitwhat: "Di WaitWhatWeb, saya merancang UI/UX untuk sepuluh brand fashion, beauty, dan food. Redesign Me+Lia mencakup dua persona, customer journey, empat user flow, prototipe Figma responsif, dan pengujian UEQ dengan lebih dari 30 responden.", research: "Praktik riset saya mencakup studi TikTok Shop terhadap 193 pengguna dengan PLS-SEM dan lima wawancara, serta capstone warehouse Dutra Parahyangan. Pada proyek tersebut saya membangun frontend untuk 27 layar dalam 12 modul dan membantu tim melewati 33 skenario black-box.", hospitality: "Pengalaman sebelumnya di The Union Group dan The Ritz-Carlton Jakarta memperkuat orientasi pelayanan, disiplin terhadap brand, dan ketelitian saya." },
+};
 
 export default function About() {
-  return (
-    <main className='min-h-screen bg-background pt-24 pb-20 px-4'>
-      <div className='max-w-4xl mx-auto'>
-        {/* Banner Image */}
-        <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className='w-full flex justify-center mb-8'>
-          <Image
-            src='/images/banner.jpg'
-            alt='Hanif portrait alongside Me+Lia and Bellrock storefront work'
-            width={1600}
-            height={640}
-            sizes='(max-width: 768px) 100vw, 1024px'
-            className='w-full max-w-5xl h-72 object-cover rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-700'
-          />
-        </MotionDiv>
-
-        {/* Location */}
-        <div className='flex justify-end mb-12'>
-          <span className='text-sm text-secondary font-medium px-4 py-2 bg-surface rounded-full border border-border'>
-            📍 West Java, Indonesia
-          </span>
-        </div>
-
-        {/* Intro Text */}
-        <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className='space-y-6 text-lg'>
-          <MotionH1 className='text-4xl md:text-5xl font-bold text-primary mb-8'>
-            Hi, I'm Hanif <span className='text-accent'>:)</span>
-          </MotionH1>
-
-          <MotionP className='text-secondary leading-relaxed'>
-            I'm a UI/UX Designer & Front-end Developer, currently finishing my
-            Bachelor's in Information System at ITENAS (expected Oct 2026). I bridge
-            the gap between complex functionality and intuitive design — and I
-            bring a rare mix: a background in luxury hospitality (The Ritz-
-            Carlton Jakarta) and 4+ years of freelance + agency UI/UX work on
-            10+ client brands.
-          </MotionP>
-
-          <MotionP className='text-secondary leading-relaxed'>
-            I take products from UX research, wireframes and Figma prototypes
-            through to responsive, production front-ends built with HTML, CSS,
-            JavaScript, React, Next.js, WordPress, Shopify and Laravel — so design
-            is handed off to real code, not left in a slide.
-          </MotionP>
-
-          <MotionP className='text-secondary leading-relaxed'>
-            I ground decisions in research: user interviews, surveys (193+
-            respondents), journey maps, personas, usability testing (UEQ) and
-            PLS-SEM-validated instruments.
-          </MotionP>
-
-          <MotionDiv className='p-6 bg-surface border-l-4 border-accent rounded-r-xl'>
-            <p className='text-primary font-medium italic'>
-              "I believe great technology should be as welcoming as exceptional
-              hospitality."
-            </p>
-          </MotionDiv>
-
-          <MotionDiv className='mt-10 space-y-4'>
-            <MotionH2 className='text-2xl font-bold text-primary'>Experience</MotionH2>
-            <MotionP className='text-secondary leading-relaxed'>
-              Senior UI/UX Designer & Front-end Developer at WaitWhatWeb
-              (PT Stellar Kreavi Digital, Jul-Sep 2024, Bandung, on-site):
-              designed UI/UX for 10 client brands across fashion, beauty, and
-              food (Me+Lia, Brasov, MyRubylicious, Wingman Denim, Junkard Co,
-              Nokha, Supergrain, Tragen, Trackerindo, Cartenz Tactical), delivered
-              front-ends in WordPress, Laravel, React, and Shopify, and ran
-              UEQ-based usability tests on 30+ respondents.
-            </MotionP>
-            <MotionP className='text-secondary leading-relaxed'>
-              UI Designer & Front-end Developer at Digitalkultr (self-employed,
-              May 2022-Present): end-to-end web and brand delivery for
-              architecture (Faza Architect) and food-and-beverage (Bellrock)
-              clients.
-            </MotionP>
-            <MotionP className='text-secondary leading-relaxed'>
-              Server at The Union Group (Roma Osteria & Bar; Bistecca, Jan 2020-
-              Jan 2021, Jakarta) and Buffet Waiter (internship) at The Ritz-
-              Carlton Jakarta, Mega Kuningan (Jan-Jul 2019): luxury hospitality
-              grounding in attention to detail, brand standards, and guest empathy.
-            </MotionP>
-          </MotionDiv>
-          </MotionDiv>
-      </div>
-    </main>
-  );
+  const { language } = useLanguage();
+  const text = about[language];
+  return <main className='min-h-screen bg-background pt-24 pb-20 px-4'><div className='max-w-4xl mx-auto'><MotionDiv initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}><Image src='/images/banner.jpg' alt='Hanif Nugraha portfolio work' width={1600} height={640} sizes='100vw' className='w-full h-72 object-cover rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all' /><span className='block text-right text-sm text-secondary mt-4'>Bandung, West Java, Indonesia</span><MotionH1 className='text-4xl md:text-5xl font-bold mt-12 mb-8'>{text.title} <span className='text-accent'>:)</span></MotionH1><div className='space-y-6 text-lg'><p>{text.intro}</p><p>{text.craft}</p><div className='p-6 bg-surface border-l-4 border-accent rounded-r-xl'><p className='font-medium italic'>â€œI believe great technology should be as welcoming as exceptional hospitality.â€</p></div><MotionH2 className='text-2xl font-bold pt-8'>{text.experience}</MotionH2><p>{text.digitalkultr}</p><p>{text.waitwhat}</p><p>{text.research}</p><p>{text.hospitality}</p></div></MotionDiv></div></main>;
 }
+
