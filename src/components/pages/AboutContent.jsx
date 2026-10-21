@@ -43,40 +43,52 @@ export default function AboutContent() {
   const text = about[language];
 
   return (
-    <main className='min-h-screen bg-background pt-24 pb-20 px-4'>
-      <div className='max-w-4xl mx-auto'>
+    <main className='min-h-screen bg-background'>
+      <section className='mx-auto max-w-shell px-5 pt-28 md:px-10 md:pt-32'>
         <div className='reveal'>
-          <Image
-            src='/images/banner.jpg'
-            alt='Hanif Nugraha portfolio work'
-            width={1600}
-            height={640}
-            sizes='100vw'
-            className='w-full h-72 object-cover rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all'
-          />
-          <span className='block text-right text-sm text-secondary mt-4'>
+          <div className='frame aspect-[16/6] w-full'>
+            <Image
+              src='/images/banner.jpg'
+              alt='Hanif Nugraha portfolio work'
+              width={1600}
+              height={640}
+              sizes='100vw'
+              className='img-quiet h-full w-full object-cover'
+            />
+          </div>
+          <span className='mono-lg mt-4 block text-right text-secondary'>
             Bandung, West Java, Indonesia
           </span>
-          <h1 className='text-4xl md:text-5xl font-bold mt-12 mb-8'>
-            {text.title} <span className='text-accent'>:)</span>
+
+          <h1 className='mt-20 max-w-4xl text-[12vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-6xl md:text-7xl'>
+            {text.title} <span className='display-outline'>:)</span>
           </h1>
-          <div className='space-y-6 text-lg'>
-            <p>{text.intro}</p>
-            <p>{text.craft}</p>
-            <div className='p-6 bg-surface border-l-4 border-accent rounded-r-xl'>
-              <p className='font-medium italic'>
+
+          <div className='mt-16 grid gap-x-16 gap-y-12 lg:grid-cols-12'>
+            <div className='space-y-6 lg:col-span-7'>
+              <p className='measure text-lg'>{text.intro}</p>
+              <p className='measure text-lg'>{text.craft}</p>
+            </div>
+
+            <blockquote className='border-l-2 border-primary pl-6 lg:col-span-5 lg:self-start'>
+              <p className='font-display text-xl font-medium leading-[1.3] tracking-[-0.02em] text-primary md:text-2xl'>
                 &ldquo;I believe great technology should be as welcoming as exceptional
                 hospitality.&rdquo;
               </p>
+            </blockquote>
+          </div>
+
+          <div className='mt-24'>
+            <h2 className='text-3xl md:text-4xl'>{text.experience}</h2>
+            <div className='mt-12 border-t border-border'>
+              <p className='measure border-b border-border py-8 text-lg'>{text.digitalkultr}</p>
+              <p className='measure border-b border-border py-8 text-lg'>{text.waitwhat}</p>
+              <p className='measure border-b border-border py-8 text-lg'>{text.research}</p>
+              <p className='measure border-b border-border py-8 text-lg'>{text.hospitality}</p>
             </div>
-            <h2 className='text-2xl font-bold pt-8'>{text.experience}</h2>
-            <p>{text.digitalkultr}</p>
-            <p>{text.waitwhat}</p>
-            <p>{text.research}</p>
-            <p>{text.hospitality}</p>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

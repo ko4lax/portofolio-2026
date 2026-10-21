@@ -18,25 +18,27 @@ export default function ContactContent() {
         };
 
   return (
-    <main className='min-h-screen bg-background flex flex-col items-center justify-center px-4'>
-      <div className='reveal mb-16 text-center'>
-        <h1 className='text-sm md:text-base font-bold tracking-[0.3em] text-accent uppercase'>
-          {text.eyebrow}
-        </h1>
-      </div>
-      <a
-        href={`mailto:${site.email}`}
-        className='text-center text-4xl md:text-7xl lg:text-8xl font-black text-primary uppercase leading-tight tracking-tighter hover:opacity-60 transition-opacity'>
-        {emailUser}
-        <br />
-        @{emailDomain}
-      </a>
-      <div className='reveal reveal-delay mt-24 text-center'>
-        <p className='text-secondary text-lg md:text-xl font-medium'>{text.location}</p>
-        <div className='mt-4 flex items-center justify-center gap-4 text-accent'>
-          <div className='w-12 h-px bg-border' />
-          <div className='w-2 h-2 rounded-full bg-accent animate-pulse' />
-          <div className='w-12 h-px bg-border' />
+    <main className='flex min-h-screen flex-col justify-center bg-background'>
+      <div className='mx-auto w-full max-w-shell px-5 pb-24 pt-32 md:px-10'>
+        <div className='reveal border-t-2 border-primary pt-8'>
+          <h1 className='mono uppercase text-secondary'>{text.eyebrow}</h1>
+
+          <a
+            href={`mailto:${site.email}`}
+            className='link-rule mt-12 block break-all font-display text-[10.5vw] font-semibold uppercase leading-[0.9] tracking-[-0.05em] text-primary hover:text-primary sm:text-5xl md:text-[6rem] lg:text-[8rem]'>
+            {emailUser}
+            <br />
+            @{emailDomain}
+          </a>
+
+          <div className='reveal reveal-delay mt-20 flex flex-col gap-6 border-t border-border pt-6 md:flex-row md:items-center md:justify-between'>
+            <p className='mono text-secondary'>{text.location}</p>
+            <div className='flex items-center gap-4 text-primary'>
+              <div className='h-px w-12 bg-border' />
+              <div className='h-1.5 w-1.5 rounded-full bg-primary animate-pulse' />
+              <div className='h-px w-12 bg-border' />
+            </div>
+          </div>
         </div>
       </div>
     </main>

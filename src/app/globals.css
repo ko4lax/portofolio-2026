@@ -2,124 +2,239 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------------------------------------------
+   Design system: "editorial dossier".
+   Ink on paper, hairline rules, a mono utility voice for metadata.
+   No chromatic accent: the only colour on the site comes from the
+   work itself (project covers, portrait) and from inverted ink panels.
+   --------------------------------------------------------------- */
 :root {
-  /* Primary Colors */
-  --primary: #000000;
-  --secondary: #525252;
-  --accent: #000000;
-  --accent-rgb: 0, 0, 0;
-  --accent-dark: #262626;
+  --ink: #121212;
+  --ink-soft: #2b2b27;
+  --paper: #fafaf8;
+  --surface: #f0f0ed;
+  --muted: #6b6b66;
+  --hairline: #dbdbd5;
+  --accent-rgb: 18, 18, 18;
 
-  /* Background and Surface */
-  --background: #FFFFFF;
-  --surface: #FFFFFF;
+  /* Token names the components already use, pointed at the new palette. */
+  --primary: var(--ink);
+  --secondary: var(--muted);
+  --accent: var(--ink);
+  --accent-dark: var(--ink-soft);
+  --background: var(--paper);
+  --border: var(--hairline);
+  --hover: var(--surface);
 
-  /* Border and Hover */
-  --border: #e5e5e5;
-  --hover: #f5f5f5;
-
-  /* Neutral Colors */
-  --neutral-50: #fafafa;
-  --neutral-100: #f5f5f5;
-  --neutral-200: #e5e5e5;
-  --neutral-300: #d4d4d4;
-  --neutral-400: #a3a3a3;
-  --neutral-500: #737373;
-  --neutral-600: #525252;
-  --neutral-700: #404040;
-  --neutral-800: #262626;
-  --neutral-900: #171717;
+  --neutral-50: #f7f7f5;
+  --neutral-100: #f0f0ed;
+  --neutral-200: #e2e2dd;
+  --neutral-300: #cfcfc9;
+  --neutral-400: #a8a8a2;
+  --neutral-500: #86867f;
+  --neutral-600: #6b6b66;
+  --neutral-700: #4a4a45;
+  --neutral-800: #2b2b27;
+  --neutral-900: #171715;
 }
 
 @layer base {
   html {
     @apply antialiased;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-primary font-sans text-base leading-relaxed min-h-screen;
+    @apply bg-background text-primary font-sans text-[15px] md:text-base leading-relaxed min-h-screen;
   }
 
-  /* Logo / Brand */
-  .logo {
-    @apply font-heading font-semibold text-2xl md:text-3xl tracking-tight;
+  /* Display voice: wide grotesk, tight tracking, used at scale. */
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-primary;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
   }
 
-  /* Headings */
   h1 {
-    @apply font-heading font-bold text-4xl md:text-5xl leading-tight tracking-tight text-primary;
+    @apply font-semibold;
   }
 
   h2 {
-    @apply font-heading font-semibold text-3xl md:text-4xl leading-tight tracking-tight text-primary;
+    @apply font-semibold;
   }
 
   h3 {
-    @apply font-heading font-semibold text-2xl md:text-3xl leading-tight tracking-tight text-primary;
+    @apply font-medium;
   }
 
-  /* Body Text */
   p {
-    @apply font-sans text-secondary text-base leading-relaxed;
+    @apply font-sans text-secondary;
   }
 
-  /* Button Text */
-  .btn-primary,
-  .btn-secondary {
-    @apply font-heading font-medium text-sm md:text-base leading-normal tracking-wide;
-  }
-
-  /* Links */
   a {
-    @apply text-accent hover:text-accent-dark transition-colors duration-200;
+    @apply text-primary transition-colors duration-200;
+  }
+
+  /* Visible keyboard focus everywhere, ink hairline, never removed. */
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: rgba(var(--accent-rgb), 0.9);
+    color: var(--paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
 @layer components {
+  /* Utility voice: mono for labels, dates, metrics, tags. No case transform:
+     the source copy is preserved exactly as written. */
+  .mono {
+    @apply font-mono text-[11px] tracking-[0.14em];
+  }
+
+  .mono-lg {
+    @apply font-mono text-xs tracking-[0.12em];
+  }
+
+  .measure {
+    max-width: 62ch;
+  }
+
+  .measure-tight {
+    max-width: 46ch;
+  }
+
+  /* Structural devices: hairlines that carry the grid. */
+  .rule {
+    @apply border-t border-border;
+  }
+
+  .rule-strong {
+    @apply border-t-2 border-primary;
+  }
+
+  .frame {
+    @apply relative overflow-hidden border border-border bg-surface;
+  }
+
+  /* Image treatment: duotone quiet until you engage with it. */
+  .img-quiet {
+    @apply grayscale transition-[filter,transform] duration-700 ease-out;
+  }
+
+  .group:hover .img-quiet,
+  .group:focus-within .img-quiet {
+    @apply grayscale-0;
+  }
+
+  .img-quiet:hover {
+    @apply grayscale-0;
+  }
+
   .btn-primary {
-    @apply bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-dark transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 bg-primary px-7 py-4 font-mono text-[11px] tracking-[0.1em] text-background transition-colors duration-200 hover:bg-accent-dark;
   }
 
   .btn-secondary {
-    @apply bg-surface text-primary px-6 py-3 rounded-lg hover:bg-hover border border-border transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 border border-primary bg-transparent px-7 py-4 font-mono text-[11px] tracking-[0.1em] text-primary transition-colors duration-200 hover:bg-primary hover:text-background;
+  }
+
+  /* Link treatment: a hairline that draws in on hover. */
+  .link-rule {
+    @apply relative inline-block;
+  }
+
+  .link-rule::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-current transition-[width] duration-300 ease-out;
+  }
+
+  .link-rule:hover::after,
+  .link-rule:focus-visible::after {
+    @apply w-full;
+  }
+
+  /* Inside a clickable row the pointer sits over the row's own control,
+     so the underline follows the row rather than the text. */
+  .group:hover .link-rule::after,
+  .group:focus-within .link-rule::after {
+    @apply w-full;
+  }
+
+  /* Signature: outlined display type. The solid ink colour is the default,
+     and the outline only replaces it where text-stroke is supported, so the
+     word can never render invisible. */
+  .display-outline {
+    color: var(--ink);
+  }
+
+  @supports (-webkit-text-stroke: 1px black) {
+    .display-outline {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--ink);
+    }
+  }
+
+  /* Ledger rows: the replacement for repeated rounded cards. */
+  .ledger {
+    @apply border-t border-border;
+  }
+
+  .ledger-row {
+    @apply grid gap-x-6 gap-y-2 border-b border-border py-5 transition-colors duration-200;
+  }
+
+  .ledger-row:hover {
+    background-color: rgba(18, 18, 18, 0.02);
+  }
+
+  .tag {
+    @apply border border-border px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-secondary;
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-surface;
+  @apply bg-background;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--accent-rgb), 0.2);
-  border-radius: 9999px;
-  transition: background-color 0.2s;
+  background-color: rgba(var(--accent-rgb), 0.18);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(var(--accent-rgb), 0.4);
-}
-
-/* Selection color */
-::selection {
-  background-color: rgba(var(--accent-rgb), 0.2);
-  color: var(--primary);
+  background-color: rgba(var(--accent-rgb), 0.35);
 }
 
 /* ---------------------------------------------------------------
-   Entrance motion.
-   Kept in CSS, not JavaScript: the prerendered HTML renders the final
-   visible state, so content is never hidden while the bundle loads and
-   it remains readable when JavaScript is blocked.
+   Entrance motion, in CSS so the prerendered HTML is already visible
+   without JavaScript and the reveal still runs when it loads.
    --------------------------------------------------------------- */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -137,15 +252,15 @@
 }
 
 .reveal {
-  animation: rise 0.5s ease-out both;
+  animation: rise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 .reveal-delay {
-  animation-delay: 0.25s;
+  animation-delay: 0.18s;
 }
 
 .nav-enter {
-  animation: nav-in 0.4s ease-out both;
+  animation: nav-in 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
