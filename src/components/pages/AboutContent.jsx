@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import MetaFrame from "@/components/MetaFrame";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const about = {
@@ -43,9 +44,10 @@ export default function AboutContent() {
   const text = about[language];
 
   return (
-    <section id='about' className='border-t border-border bg-background'>
+    <section id='about' data-accent='orange' className='bg-background'>
       <section className='mx-auto max-w-shell px-5 pt-12 md:px-10 md:pt-14'>
         <div className='reveal'>
+          <MetaFrame label='banner.jpg' accent='orange' className='pt-6'>
           <div className='frame aspect-[16/6] w-full'>
             <Image
               src='/images/banner.jpg'
@@ -56,7 +58,8 @@ export default function AboutContent() {
               className='img-quiet h-full w-full object-cover'
             />
           </div>
-          <span className='mono-lg mt-4 block text-right text-secondary'>
+          </MetaFrame>
+          <span className='mono-lg mt-6 block text-right accent-text'>
             Bandung, West Java, Indonesia
           </span>
 

@@ -85,8 +85,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`nav-enter fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "border-border bg-background" : "border-transparent"
+      data-accent='blue'
+      className={`nav-enter fixed left-0 right-0 top-0 z-50 border-b backdrop-blur transition-colors duration-300 ${
+        scrolled ? "border-border bg-background/85" : "border-transparent"
       }`}>
       <div className='mx-auto flex h-16 max-w-shell items-center justify-between px-5 md:h-20 md:px-10'>
         <a
@@ -128,7 +129,7 @@ export default function Navbar() {
             type='button'
             onClick={toggleLanguage}
             aria-label={`Switch language to ${text.nav.language}`}
-            className='mono border border-border px-2.5 py-1 text-secondary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-background'>
+            className='chip transition-colors duration-200 hover:bg-white/10'>
             {text.nav.language}
           </button>
 
@@ -213,7 +214,7 @@ export default function Navbar() {
               type='button'
               onClick={toggleLanguage}
               aria-label={`Switch language to ${text.nav.language}`}
-              className='mono border border-border px-2.5 py-1 text-secondary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-background'>
+              className='chip transition-colors duration-200 hover:bg-white/10'>
               {text.nav.language}
             </button>
           </div>

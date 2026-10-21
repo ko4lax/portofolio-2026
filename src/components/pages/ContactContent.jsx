@@ -18,10 +18,10 @@ export default function ContactContent() {
         };
 
   return (
-    <section id='contact' className='flex min-h-screen flex-col justify-center border-t border-border bg-background'>
+    <section id='contact' data-accent='pink' className='flex min-h-screen flex-col justify-center bg-background'>
       <div className='mx-auto w-full max-w-shell px-5 pb-24 pt-32 md:px-10'>
         <div className='reveal border-t-2 border-primary pt-8'>
-          <h2 className='mono uppercase text-secondary'>{text.eyebrow}</h2>
+          <h2 className='mono accent-text uppercase'>{text.eyebrow}</h2>
 
           <a
             href={`mailto:${site.email}`}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import MetaFrame from "@/components/MetaFrame";
 import { useEffect, useId, useRef } from "react";
 
 const FOCUSABLE =
@@ -49,18 +50,18 @@ export default function ProjectModal({ project, labels, onClose }) {
 
   return (
     <div
-      className='fixed inset-0 z-[60] flex items-center justify-center bg-[#121212]/75 p-4 md:p-8'
+      className='fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 md:p-8'
       onClick={onClose}>
       <div
         ref={dialogRef}
         role='dialog'
         aria-modal='true'
         aria-labelledby={titleId}
-        className='max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-border bg-background p-6 md:p-8'
+        className='max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-border bg-background p-6 md:p-8'
         onClick={(event) => event.stopPropagation()}>
         <div className='flex items-start justify-between gap-6 border-b border-border pb-6'>
           <div>
-            <p className='mono uppercase text-secondary'>{project.kicker}</p>
+            <p className='mono accent-text uppercase'>{project.kicker}</p>
             <h2 id={titleId} className='mt-4 text-3xl font-medium tracking-[-0.03em] md:text-4xl'>
               {project.title}
             </h2>
@@ -75,15 +76,17 @@ export default function ProjectModal({ project, labels, onClose }) {
         </div>
 
         {project.image && (
-          <div className='frame mt-6 aspect-video max-h-[24vh] w-full'>
-            <Image
-              src={project.image}
-              alt=''
-              width={1600}
-              height={900}
-              className='h-full w-full object-cover'
-            />
-          </div>
+          <MetaFrame label={project.image.split("/").pop()} className='mt-8 pt-6'>
+            <div className='frame aspect-video max-h-[24vh] w-full'>
+              <Image
+                src={project.image}
+                alt=''
+                width={1600}
+                height={900}
+                className='h-full w-full object-cover'
+              />
+            </div>
+          </MetaFrame>
         )}
 
         <p className='measure mt-6 text-secondary leading-6'>{project.details}</p>
@@ -119,7 +122,7 @@ export default function ProjectModal({ project, labels, onClose }) {
           <dl className='mt-12 border-t-2 border-primary'>
             {caseRows(project.case, labels).map((row) => (
               <div key={row.label} className='grid gap-x-8 gap-y-2 border-b border-border py-6 md:grid-cols-12'>
-                <dt className='mono uppercase text-secondary md:col-span-3'>{row.label}</dt>
+                <dt className='mono accent-text uppercase md:col-span-3'>{row.label}</dt>
                 <dd className='md:col-span-9'>
                   {row.list ? (
                     <ul className='space-y-3'>
