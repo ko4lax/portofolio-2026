@@ -35,13 +35,16 @@ export default function ProjectsContent() {
         };
 
   return (
-    <main className='min-h-screen bg-background pt-24 pb-20 px-4'>
-      <div className='max-w-6xl mx-auto'>
-        <div className='reveal mb-12'>
-          <h1 className='text-4xl md:text-5xl font-bold mb-4'>{labels.title}</h1>
-          <p className='text-xl text-secondary max-w-2xl'>{labels.intro}</p>
+    <main className='min-h-screen bg-background'>
+      <div className='mx-auto max-w-shell px-5 pb-24 pt-28 md:px-10 md:pb-32 md:pt-40'>
+        <div className='reveal border-t-2 border-primary pt-8'>
+          <h1 className='text-[12vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-6xl md:text-7xl'>
+            {labels.title}
+          </h1>
+          <p className='measure mt-8 text-lg text-secondary'>{labels.intro}</p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+
+        <div className='mt-20'>
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}

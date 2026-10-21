@@ -2,15 +2,21 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className='min-h-screen bg-background flex flex-col items-center justify-center px-4 text-center'>
-      <p className='text-sm font-bold tracking-[0.3em] uppercase text-secondary'>404</p>
-      <h1 className='text-4xl md:text-6xl font-black mt-6 mb-6'>This page does not exist.</h1>
-      <p className='text-lg text-secondary max-w-md mb-10'>
-        The link may be outdated, or the page may have moved.
-      </p>
-      <Link href='/' className='btn-primary inline-block px-8 py-4 font-bold'>
-        Back to home
-      </Link>
+    <main className='flex min-h-screen flex-col justify-center bg-background'>
+      <div className='mx-auto w-full max-w-shell px-5 py-32 md:px-10'>
+        <div className='border-t-2 border-primary pt-8'>
+          <p className='mono text-secondary'>404</p>
+          <h1 className='mt-10 max-w-3xl text-[13vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-5xl md:text-6xl'>
+            This page does not exist.
+          </h1>
+          <p className='measure mt-8 text-lg text-secondary'>
+            The link may be outdated, or the page may have moved.
+          </p>
+          <Link href='/' className='btn-primary mt-12'>
+            Back to home
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

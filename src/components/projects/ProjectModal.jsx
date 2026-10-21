@@ -42,26 +42,26 @@ export default function ProjectModal({ project, labels, onClose }) {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
-      // Return focus to the card that opened the dialog.
+      // Return focus to the entry that opened the panel.
       if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus();
     };
   }, [onClose]);
 
   return (
     <div
-      className='fixed inset-0 z-[60] bg-black/60 p-4 flex items-center justify-center'
+      className='fixed inset-0 z-[60] flex items-center justify-center bg-[#121212]/75 p-4 md:p-8'
       onClick={onClose}>
       <div
         ref={dialogRef}
         role='dialog'
         aria-modal='true'
         aria-labelledby={titleId}
-        className='w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-background p-6 md:p-10'
+        className='max-h-[92vh] w-full max-w-3xl overflow-y-auto border border-border bg-background p-6 md:p-8'
         onClick={(event) => event.stopPropagation()}>
-        <div className='flex justify-between gap-4 items-start'>
+        <div className='flex items-start justify-between gap-6 border-b border-border pb-6'>
           <div>
-            <p className='text-xs uppercase tracking-widest text-secondary'>{project.kicker}</p>
-            <h2 id={titleId} className='text-3xl font-bold mt-2'>
+            <p className='mono uppercase text-secondary'>{project.kicker}</p>
+            <h2 id={titleId} className='mt-4 text-3xl font-medium tracking-[-0.03em] md:text-4xl'>
               {project.title}
             </h2>
           </div>
@@ -69,36 +69,49 @@ export default function ProjectModal({ project, labels, onClose }) {
             ref={closeButtonRef}
             type='button'
             onClick={onClose}
-            className='rounded-full border border-border px-3 py-1 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'>
+            className='mono shrink-0 border border-border px-3 py-1.5 text-secondary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-background'>
             {labels.close}
           </button>
         </div>
+
         {project.image && (
-          <Image
-            src={project.image}
-            alt=''
-            width={1600}
-            height={900}
-            className='w-full aspect-video object-cover rounded-2xl mt-6'
-          />
-        )}
-        <p className='text-secondary leading-relaxed mt-6'>{project.details}</p>
-        <div className='grid grid-cols-2 gap-4 mt-8'>
-          <div>
-            <span className='block text-xs text-secondary'>{labels.role}</span>
-            <strong>{project.role}</strong>
+          <div className='frame mt-6 aspect-video max-h-[24vh] w-full'>
+            <Image
+              src={project.image}
+              alt=''
+              width={1600}
+              height={900}
+              className='h-full w-full object-cover'
+            />
           </div>
-          <div>
-            <span className='block text-xs text-secondary'>{labels.year}</span>
-            <strong>{project.year}</strong>
+        )}
+
+        <p className='measure mt-6 text-secondary leading-6'>{project.details}</p>
+
+        <dl className='mt-8 flex flex-wrap border-t border-border'>
+          <div className='min-w-[9rem] flex-1 border-b border-l border-border px-5 py-3.5'>
+            <dt className='mono text-secondary'>{labels.role}</dt>
+            <dd className='mt-1.5 font-display text-[0.95rem] font-medium tracking-[-0.02em] text-primary'>
+              {project.role}
+            </dd>
+          </div>
+          <div className='min-w-[9rem] flex-1 border-b border-l border-border px-5 py-3.5'>
+            <dt className='mono text-secondary'>{labels.year}</dt>
+            <dd className='mt-1.5 font-display text-[0.95rem] font-medium tabular-nums tracking-[-0.02em] text-primary'>
+              {project.year}
+            </dd>
           </div>
           {project.metrics.map((metric) => (
-            <div key={metric.label}>
-              <span className='block text-xs text-secondary'>{metric.label}</span>
-              <strong>{metric.value}</strong>
+            <div
+              key={metric.label}
+              className='min-w-[9rem] flex-1 border-b border-l border-border px-5 py-3.5'>
+              <dt className='mono text-secondary'>{metric.label}</dt>
+              <dd className='mt-1.5 font-display text-[0.95rem] font-medium tabular-nums tracking-[-0.02em] text-primary'>
+                {metric.value}
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </div>
   );
