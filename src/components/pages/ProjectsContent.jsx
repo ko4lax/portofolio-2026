@@ -49,7 +49,7 @@ export default function ProjectsContent() {
         };
 
   return (
-    <section id='projects' className='border-t border-border bg-background'>
+    <section id='projects' data-accent='blue' className='bg-background'>
       <div className='mx-auto max-w-shell px-5 pb-24 pt-20 md:px-10 md:pb-32 md:pt-24'>
         <div className='reveal border-t-2 border-primary pt-8'>
           <h2 className='text-[12vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-6xl md:text-7xl'>

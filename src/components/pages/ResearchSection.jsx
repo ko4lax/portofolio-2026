@@ -25,7 +25,7 @@ export default function ResearchSection() {
 
   return (
     // Research: the instrument, its numbers, its result.
-    <section className='border-t border-border bg-surface'>
+    <section data-accent='mint' className='bg-surface'>
       <div className='mx-auto max-w-shell px-5 py-20 md:px-10 md:py-28'>
         <div className='grid gap-x-16 gap-y-8 lg:grid-cols-12'>
           <h2 className='text-3xl md:text-4xl lg:col-span-4'>{text.home.research}</h2>
@@ -57,8 +57,8 @@ export default function ResearchSection() {
             <StudyBlock label={text.home.strandsTitle}>
               <div className='grid gap-10 sm:grid-cols-2'>
                 {text.home.strands.map((strand) => (
-                  <div key={strand.label} className='border-t border-primary pt-5'>
-                    <h4 className='mono uppercase text-primary'>{strand.label}</h4>
+                  <div key={strand.label} className='panel-pad'>
+                    <h4 className='mono accent-text uppercase'>{strand.label}</h4>
                     <p className='mt-3 text-secondary leading-6'>{strand.body}</p>
                   </div>
                 ))}

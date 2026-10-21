@@ -9,13 +9,13 @@ export default function PublicationsList() {
 
   return (
     <div className='mt-20'>
-      <h3 className='mono uppercase text-secondary'>{text.home.publicationsTitle}</h3>
+      <h3 className='mono accent-text uppercase'>{text.home.publicationsTitle}</h3>
       <ul className='mt-6 border-t border-border'>
         {publications.map((publication) => (
           <li
             key={publication.title}
-            className='grid gap-x-8 gap-y-3 border-b border-border py-6 md:grid-cols-12'>
-            <p className='mono uppercase text-secondary md:col-span-3'>
+            className='grid gap-x-8 gap-y-3 border-b border-border py-6 last:border-b-0 md:grid-cols-12'>
+            <p className='mono accent-text uppercase md:col-span-3'>
               {text.home.pubTypes[publication.kind]}
             </p>
             <div className='md:col-span-9'>

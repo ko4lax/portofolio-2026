@@ -12,6 +12,7 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 import { useLanguage } from "@/components/LanguageProvider";
+import MetaFrame from "@/components/MetaFrame";
 import ResearchSection from "@/components/pages/ResearchSection";
 import { certifications } from "@/data/site";
 
@@ -30,24 +31,29 @@ export default function HomeContent() {
   const { text } = useLanguage();
 
   return (
-    <section id='home' className='bg-background'>
+    <section id='home' data-accent='purple' className='bg-background'>
       {/* Hero. Source order is preserved (portrait, then the statement); on
           wide screens the portrait is placed in the right column with grid
           placement instead of an order override. */}
       <section className='mx-auto grid max-w-shell grid-cols-1 items-center gap-x-16 gap-y-12 px-5 pb-16 pt-28 md:px-10 md:pb-24 md:pt-40 lg:grid-cols-12'>
-        <div className='reveal group frame w-full max-w-[21rem] lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:justify-self-end'>
-          <Image
-            src='/images/profile.jpg'
-            alt='Hanif Nugraha'
-            width={512}
-            height={640}
-            priority
-            className='img-quiet h-auto w-full'
-          />
-        </div>
+        <MetaFrame
+          label='profile.jpg'
+          accent='purple'
+          className='reveal group w-full max-w-[21rem] pt-6 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:justify-self-end'>
+          <div className='frame w-full'>
+            <Image
+              src='/images/profile.jpg'
+              alt='Hanif Nugraha'
+              width={512}
+              height={640}
+              priority
+              className='img-quiet h-auto w-full'
+            />
+          </div>
+        </MetaFrame>
 
         <div className='reveal reveal-delay lg:col-span-7 lg:col-start-1 lg:row-start-1'>
-          <p className='mono uppercase text-secondary'>{text.home.availability}</p>
+          <p className='mono accent-text uppercase'>{text.home.availability}</p>
           <h1 className='mt-8 text-[15vw] font-semibold leading-[0.88] tracking-[-0.045em] sm:text-6xl md:text-7xl lg:text-[5.25rem]'>
             HELLO!
             <br />
@@ -73,7 +79,7 @@ export default function HomeContent() {
             <p className='measure text-lg text-secondary lg:col-span-8'>{text.home.experience}</p>
           </div>
 
-          <ul className='mt-16 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4'>
+          <ul className='mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-4'>
             {skills.map(([name, Icon]) => (
               <li key={name} className='flex items-center gap-3 bg-background px-5 py-6'>
                 <Icon className='h-4 w-4 shrink-0 text-secondary' aria-hidden='true' />
@@ -117,7 +123,7 @@ export default function HomeContent() {
           <h2 className='max-w-5xl text-4xl font-semibold text-background md:text-6xl'>
             {text.home.collaborate}
           </h2>
-          <p className='measure mt-6 text-lg text-white/70'>{text.home.contactText}</p>
+          <p className='measure mt-6 text-lg text-background/70'>{text.home.contactText}</p>
           <a
             href='#contact'
             className='btn-secondary mt-12 border-background text-background hover:bg-background hover:text-primary'>

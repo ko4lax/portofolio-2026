@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MetaFrame from "@/components/MetaFrame";
 
 /**
  * One entry in the work index. Source order matches the original card
@@ -7,9 +8,10 @@ import Image from "next/image";
  */
 export default function ProjectCard({ project, labels, onOpen }) {
   return (
-    <article className='group relative grid grid-cols-1 gap-y-6 border-b border-border py-8 transition-colors duration-200 hover:bg-[#f2f2ef] md:grid-cols-12 md:gap-x-12 md:py-12'>
+    <article className='group relative grid grid-cols-1 gap-y-6 rounded-2xl border border-border px-5 py-8 transition-colors duration-200 hover:bg-white/[0.03] md:grid-cols-12 md:gap-x-12 md:px-8 md:py-12'>
       <div className='md:col-span-3 md:col-start-10 md:row-start-1'>
         {project.image ? (
+          <MetaFrame label={project.image.split("/").pop()} className='pt-6'>
           <div className='frame aspect-video w-full'>
             <Image
               src={project.image}
@@ -20,8 +22,9 @@ export default function ProjectCard({ project, labels, onOpen }) {
               className='img-quiet h-full w-full object-cover'
             />
           </div>
+          </MetaFrame>
         ) : (
-          <div className='frame flex aspect-video w-full items-center justify-center bg-[repeating-linear-gradient(45deg,#eceae4_0px,#eceae4_1px,transparent_1px,transparent_9px)]'>
+          <div className='frame flex aspect-video w-full items-center justify-center bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.09)_0px,rgba(255,255,255,0.09)_1px,transparent_1px,transparent_9px)]'>
             <span className='mono uppercase text-secondary'>{labels.noImage}</span>
           </div>
         )}
@@ -33,7 +36,7 @@ export default function ProjectCard({ project, labels, onOpen }) {
 
       <div className='md:col-span-6 md:col-start-4 md:row-start-1'>
         <h2 className='text-2xl font-medium tracking-[-0.03em] md:text-3xl'>
-          <span className='link-rule'>{project.title}</span>
+          <span className='link-rule accent-text'>{project.title}</span>
         </h2>
         <p className='measure mt-5 text-secondary'>{project.summary}</p>
 
@@ -50,7 +53,7 @@ export default function ProjectCard({ project, labels, onOpen }) {
 
         <div className='mt-8 flex flex-wrap gap-2'>
           {project.tags.map((tag) => (
-            <span key={tag} className='tag'>
+            <span key={tag} className='chip'>
               {tag}
             </span>
           ))}
