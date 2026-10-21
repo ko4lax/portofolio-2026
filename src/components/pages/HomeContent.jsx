@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   FaChartLine,
   FaFigma,
@@ -43,7 +42,7 @@ export default function HomeContent() {
   const { text } = useLanguage();
 
   return (
-    <main className='min-h-screen bg-background'>
+    <section id='home' className='bg-background'>
       {/* Hero. Source order is preserved (portrait, then the statement); on
           wide screens the portrait is placed in the right column with grid
           placement instead of an order override. */}
@@ -68,12 +67,12 @@ export default function HomeContent() {
           </h1>
           <p className='measure mt-10 text-lg text-secondary md:text-xl'>{text.home.intro}</p>
           <div className='mt-12 flex flex-wrap items-center gap-3'>
-            <Link href='/projects' className='btn-primary'>
+            <a href='#projects' className='btn-primary'>
               {text.home.viewProjects}
-            </Link>
-            <Link href='/contact' className='btn-secondary'>
+            </a>
+            <a href='#contact' className='btn-secondary'>
               {text.home.letsTalk}
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -192,18 +191,18 @@ export default function HomeContent() {
 
       {/* Closing statement: inverted ink panel, the one high-contrast moment. */}
       <section className='bg-primary text-background'>
-        <div className='mx-auto max-w-shell px-5 py-24 md:px-10 md:py-32'>
+        <div className='mx-auto max-w-shell px-5 py-16 md:px-10 md:py-24'>
           <h2 className='max-w-5xl text-4xl font-semibold text-background md:text-6xl'>
             {text.home.collaborate}
           </h2>
           <p className='measure mt-6 text-lg text-white/70'>{text.home.contactText}</p>
-          <Link
-            href='/contact'
+          <a
+            href='#contact'
             className='btn-secondary mt-12 border-background text-background hover:bg-background hover:text-primary'>
             {text.home.letsTalk}
-          </Link>
+          </a>
         </div>
       </section>
-    </main>
+    </section>
   );
 }

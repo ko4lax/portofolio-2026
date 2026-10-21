@@ -42,6 +42,21 @@
   html {
     @apply antialiased;
     -webkit-text-size-adjust: 100%;
+    /* The nav is fixed, so anchored sections need to stop clear of it. */
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 5.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -168,6 +183,11 @@
 
   .link-rule:hover::after,
   .link-rule:focus-visible::after {
+    @apply w-full;
+  }
+
+  /* The section currently in view keeps its rule drawn. */
+  .link-rule-active::after {
     @apply w-full;
   }
 
