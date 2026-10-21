@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import ProjectCard from "@/components/projects/ProjectCard";
 import ProjectModal from "@/components/projects/ProjectModal";
@@ -9,6 +9,7 @@ import { projects } from "@/data/projects";
 export default function ProjectsContent() {
   const { language } = useLanguage();
   const [selected, setSelected] = useState(null);
+  const closeModal = useCallback(() => setSelected(null), []);
 
   const labels =
     language === "id"
@@ -51,9 +52,7 @@ export default function ProjectsContent() {
           ))}
         </div>
       </div>
-      {selected && (
-        <ProjectModal project={selected} labels={labels} onClose={() => setSelected(null)} />
-      )}
+      {selected && <ProjectModal project={selected} labels={labels} onClose={closeModal} />}
     </main>
   );
 }

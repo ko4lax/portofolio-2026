@@ -19,7 +19,9 @@ export default function ProjectCard({ project, labels, onOpen }) {
       </div>
       <div className='p-6 flex flex-col flex-grow'>
         <p className='text-xs uppercase tracking-widest text-secondary mb-2'>{project.kicker}</p>
-        <h2 className='text-xl font-bold mb-3'>{project.title}</h2>
+        <h2 className='text-xl font-bold mb-3 group-hover:underline underline-offset-4 decoration-2'>
+          {project.title}
+        </h2>
         <p className='text-secondary text-sm leading-relaxed mb-4 flex-grow'>{project.summary}</p>
         <dl className='flex flex-wrap gap-x-6 gap-y-2'>
           {project.metrics.map((metric) => (

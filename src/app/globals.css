@@ -10,7 +10,7 @@
   --accent-rgb: 0, 0, 0;
   --accent-light: #262626;
   --accent-lighter: #a3a3a3;
-  --accent-dark: #000000;
+  --accent-dark: #262626;
 
   /* Background and Surface */
   --background: #FFFFFF;
@@ -71,11 +71,7 @@
     @apply font-heading font-medium text-sm md:text-base leading-normal tracking-wide;
   }
 
-  /* Small Captions */
-  .caption {
-    @apply font-sans text-xs md:text-sm leading-relaxed text-secondary;
-  }
-
+  /* Links */
   a {
     @apply text-accent hover:text-accent-dark transition-colors duration-200;
   }
@@ -88,18 +84,6 @@
 
   .btn-secondary {
     @apply bg-surface text-primary px-6 py-3 rounded-lg hover:bg-hover border border-border transition-colors duration-200;
-  }
-
-  .card {
-    @apply bg-surface p-6 rounded-lg border border-border transition-colors duration-200;
-  }
-
-  .card:hover {
-    border-color: rgba(var(--accent-rgb), 0.2);
-  }
-
-  .input {
-    @apply w-full px-4 py-2 rounded-lg border border-border focus:border-accent focus:ring-1 focus:ring-accent bg-background text-primary placeholder-secondary/60 transition-colors duration-200;
   }
 }
 
