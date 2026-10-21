@@ -124,7 +124,7 @@ export default function HomeContent() {
               ))}
             </div>
 
-            <div className='mt-14'>
+            <div className='mt-14 max-w-3xl'>
               {uxScores.map((score) => (
                 <div
                   key={score.label}
