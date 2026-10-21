@@ -191,7 +191,7 @@ export default function HomeContent() {
 
       {/* Closing statement: inverted ink panel, the one high-contrast moment. */}
       <section className='bg-primary text-background'>
-        <div className='mx-auto max-w-shell px-5 py-24 md:px-10 md:py-32'>
+        <div className='mx-auto max-w-shell px-5 py-16 md:px-10 md:py-24'>
           <h2 className='max-w-5xl text-4xl font-semibold text-background md:text-6xl'>
             {text.home.collaborate}
           </h2>
