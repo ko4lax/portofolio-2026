@@ -10,7 +10,11 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     const stored = window.localStorage.getItem("portfolio-language");
-    if (stored === "id" || stored === "en") setLanguage(stored);
+    if (stored !== "id" && stored !== "en") return;
+    setLanguage(stored);
+    // Keep the document language in sync with the visible copy: without this the
+    // stored Indonesian page still announces itself as English.
+    document.documentElement.lang = stored;
   }, []);
 
   const value = useMemo(() => ({

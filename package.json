@@ -2,11 +2,15 @@
   "name": "portofolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "check:assets": "node scripts/check-assets.mjs"
   },
   "dependencies": {
     "next": "^15.5.28",
@@ -16,8 +20,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "22.15.3",
-    "@types/react": "19.1.2",
     "autoprefixer": "^10.4.16",
     "eslint": "^9",
     "eslint-config-next": "^15.5.28",
