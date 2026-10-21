@@ -52,90 +52,91 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`nav-enter fixed top-0 left-0 right-0 w-full z-50 px-4 transition-all duration-300 ${
-        scrolled ? "bg-surface shadow-md border-b border-border" : "bg-surface"
+      className={`nav-enter fixed left-0 right-0 top-0 z-50 border-b transition-colors duration-300 ${
+        scrolled ? "border-border bg-background" : "border-transparent"
       }`}>
-      <div className='px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16'>
-          <Link href='/' className='logo text-primary' onClick={() => setIsOpen(false)}>
-            Hn
-          </Link>
+      <div className='mx-auto flex h-16 max-w-shell items-center justify-between px-5 md:h-20 md:px-10'>
+        <Link
+          href='/'
+          className='font-display text-xl font-semibold tracking-[-0.04em] text-primary'
+          onClick={() => setIsOpen(false)}>
+          Hn
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-8'>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className='text-secondary hover:text-primary transition-colors duration-200 relative group'>
-                {item.name}
-                <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300' />
-              </Link>
-            ))}
+        {/* Desktop Navigation */}
+        <div className='hidden items-center gap-8 md:flex'>
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className='link-rule mono text-secondary hover:text-primary'>
+              {item.name}
+            </Link>
+          ))}
 
-            {/* Divider */}
-            <div className='h-6 w-px bg-secondary/20 mx-2' />
+          <span className='h-4 w-px bg-border' aria-hidden='true' />
 
-            {/* Resume Download */}
-            <a
-              href={site.resume}
-              download={site.resumeFileName}
-              className='flex items-center text-secondary hover:text-primary transition-colors duration-200'>
-              <IoDocumentTextOutline className='w-5 h-5 mr-1' aria-hidden='true' />
-              {text.nav.resume}
-            </a>
-            <button
-              type='button'
-              onClick={toggleLanguage}
-              aria-label={`Switch language to ${text.nav.language}`}
-              className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
-              {text.nav.language}
-            </button>
+          <a
+            href={site.resume}
+            download={site.resumeFileName}
+            className='link-rule mono flex items-center gap-2 text-secondary hover:text-primary'>
+            <IoDocumentTextOutline className='h-3.5 w-3.5' aria-hidden='true' />
+            {text.nav.resume}
+          </a>
 
-            {/* Social Links */}
-            <SocialLinks className='text-secondary hover:text-primary transition-colors duration-200' />
-          </div>
-
-          {/* Mobile menu button */}
           <button
-            ref={toggleRef}
             type='button'
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-controls={MENU_ID}
-            className='md:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors duration-200'>
-            <span className='sr-only'>{isOpen ? "Close menu" : "Open menu"}</span>
-            {!isOpen ? (
-              <svg
-                className='h-6 w-6 text-primary'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                aria-hidden='true'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M4 6h16M4 12h16M4 18h16'
-                />
-              </svg>
-            ) : (
-              <svg
-                className='h-6 w-6 text-primary'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                aria-hidden='true'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M6 18L18 6M6 6l12 12'
-                />
-              </svg>
-            )}
+            onClick={toggleLanguage}
+            aria-label={`Switch language to ${text.nav.language}`}
+            className='mono border border-border px-2.5 py-1 text-secondary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-background'>
+            {text.nav.language}
           </button>
+
+          <SocialLinks
+            className='text-secondary transition-colors duration-200 hover:text-primary'
+            iconClassName='h-3.5 w-3.5'
+          />
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          ref={toggleRef}
+          type='button'
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-controls={MENU_ID}
+          className='-mr-2 p-2 text-primary md:hidden'>
+          <span className='sr-only'>{isOpen ? "Close menu" : "Open menu"}</span>
+          {!isOpen ? (
+            <svg
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              aria-hidden='true'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={1.5}
+                d='M4 7h16M4 12h16M4 17h16'
+              />
+            </svg>
+          ) : (
+            <svg
+              className='h-5 w-5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              aria-hidden='true'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={1.5}
+                d='M6 18L18 6M6 6l12 12'
+              />
+            </svg>
+          )}
+        </button>
       </div>
 
       {/* Mobile menu. `inert` keeps the collapsed links out of the tab order and
@@ -143,35 +144,35 @@ export default function Navbar() {
       <div
         id={MENU_ID}
         inert={!isOpen}
-        className={`md:hidden overflow-hidden bg-surface/95 backdrop-blur-lg border-t border-border transition-all duration-300 ${
+        className={`overflow-hidden border-t border-border bg-background transition-all duration-300 md:hidden ${
           isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
         }`}>
-        <div className='px-4 pt-4 pb-6 space-y-4'>
+        <div className='px-5 pb-6 pt-2'>
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className='block px-4 py-3 rounded-xl text-lg font-medium text-secondary hover:text-primary hover:bg-accent/10 transition-all duration-200'>
+              className='flex items-baseline justify-between border-b border-border py-4 font-display text-2xl tracking-[-0.03em] text-primary'>
               {item.name}
             </Link>
           ))}
-          <div className='pt-4 border-t border-border flex items-center justify-between'>
-            <div className='flex space-x-6'>
-              <SocialLinks className='text-secondary hover:text-primary' iconClassName='w-6 h-6' />
+          <div className='flex items-center justify-between pt-5'>
+            <div className='flex gap-5'>
+              <SocialLinks className='text-secondary hover:text-primary' iconClassName='h-4 w-4' />
             </div>
             <a
               href={site.resume}
               download={site.resumeFileName}
-              className='flex items-center text-accent font-medium'>
-              <IoDocumentTextOutline className='w-5 h-5 mr-1' aria-hidden='true' />
+              className='mono flex items-center gap-2 text-primary'>
+              <IoDocumentTextOutline className='h-3.5 w-3.5' aria-hidden='true' />
               {text.nav.resume}
             </a>
             <button
               type='button'
               onClick={toggleLanguage}
               aria-label={`Switch language to ${text.nav.language}`}
-              className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
+              className='mono border border-border px-2.5 py-1 text-secondary transition-colors duration-200 hover:border-primary hover:bg-primary hover:text-background'>
               {text.nav.language}
             </button>
           </div>
