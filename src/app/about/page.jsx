@@ -1,16 +1,13 @@
-"use client";
+import AboutContent from "@/components/pages/AboutContent";
+import { pageMetadata } from "@/data/seo";
 
-import Image from "next/image";
-import { MotionDiv, MotionH1, MotionH2 } from "@/components/motion";
-import { useLanguage } from "@/components/LanguageProvider";
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Profile, research practice and experience of Hanif Nugraha, UI/UX designer and front-end developer in Bandung, Indonesia.",
+  path: "/about",
+});
 
-const about = {
-  en: { title: "Hi, I'm Hanif", intro: "I'm a UI/UX Designer and Front-end Developer completing my Bachelor's degree in Information Systems at the National Institute of Technology Bandung. I bring more than four years of freelance and agency work, alongside a hospitality background that shaped my attention to detail and empathy.", craft: "I take products from research, interviews, personas, journey maps, wireframes, and Figma prototypes through to responsive frontends in HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, and Laravel.", experience: "Experience", digitalkultr: "At Digitalkultr, I design websites and brand identities for architecture and food-and-beverage clients. Faza Architect included a filterable portfolio gallery, project detail pages, and an About page; Bellrock Artisan Coffee included a brand identity, landing pages, and an online storefront.", waitwhat: "At WaitWhatWeb, I designed UI/UX for ten client brands across fashion, beauty, and food. The Me+Lia redesign included two personas, a journey map, four user flows, responsive Figma prototypes, and UEQ testing with more than 30 respondents.", research: "My research practice includes a 193-user TikTok Shop study with PLS-SEM and five interviews, plus the Dutra Parahyangan warehouse capstone, where I built the frontend for 27 screens across 12 modules and helped the team pass 33 black-box scenarios.", hospitality: "Earlier roles at The Union Group and The Ritz-Carlton Jakarta strengthened my service mindset, brand discipline, and ability to stay attentive under pressure." },
-  id: { title: "Hai, saya Hanif", intro: "Saya UI/UX Designer dan Front-end Developer yang sedang menyelesaikan Sarjana Sistem Informasi di Institut Teknologi Nasional Bandung. Saya memiliki pengalaman freelance dan agensi lebih dari empat tahun, ditambah latar hospitality yang membentuk perhatian pada detail dan empati saya.", craft: "Saya mengerjakan produk dari riset, wawancara, persona, customer journey, wireframe, dan prototipe Figma hingga frontend responsif dengan HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, dan Laravel.", experience: "Pengalaman", digitalkultr: "Di Digitalkultr, saya merancang website dan identitas brand untuk klien arsitektur serta food-and-beverage. Faza Architect mencakup galeri portfolio yang dapat difilter, halaman detail proyek, dan halaman About; Bellrock Artisan Coffee mencakup identitas brand, landing page, dan storefront online.", waitwhat: "Di WaitWhatWeb, saya merancang UI/UX untuk sepuluh brand fashion, beauty, dan food. Redesign Me+Lia mencakup dua persona, customer journey, empat user flow, prototipe Figma responsif, dan pengujian UEQ dengan lebih dari 30 responden.", research: "Praktik riset saya mencakup studi TikTok Shop terhadap 193 pengguna dengan PLS-SEM dan lima wawancara, serta capstone warehouse Dutra Parahyangan. Pada proyek tersebut saya membangun frontend untuk 27 layar dalam 12 modul dan membantu tim melewati 33 skenario black-box.", hospitality: "Pengalaman sebelumnya di The Union Group dan The Ritz-Carlton Jakarta memperkuat orientasi pelayanan, disiplin terhadap brand, dan ketelitian saya." },
-};
-
-export default function About() {
-  const { language } = useLanguage();
-  const text = about[language];
-  return <main className='min-h-screen bg-background pt-24 pb-20 px-4'><div className='max-w-4xl mx-auto'><MotionDiv initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}><Image src='/images/banner.jpg' alt='Hanif Nugraha portfolio work' width={1600} height={640} sizes='100vw' className='w-full h-72 object-cover rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all' /><span className='block text-right text-sm text-secondary mt-4'>Bandung, West Java, Indonesia</span><MotionH1 className='text-4xl md:text-5xl font-bold mt-12 mb-8'>{text.title} <span className='text-accent'>:)</span></MotionH1><div className='space-y-6 text-lg'><p>{text.intro}</p><p>{text.craft}</p><div className='p-6 bg-surface border-l-4 border-accent rounded-r-xl'><p className='font-medium italic'>“I believe great technology should be as welcoming as exceptional hospitality.”</p></div><MotionH2 className='text-2xl font-bold pt-8'>{text.experience}</MotionH2><p>{text.digitalkultr}</p><p>{text.waitwhat}</p><p>{text.research}</p><p>{text.hospitality}</p></div></MotionDiv></div></main>;
+export default function AboutPage() {
+  return <AboutContent />;
 }

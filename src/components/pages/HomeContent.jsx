@@ -1,0 +1,180 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaChartLine,
+  FaFigma,
+  FaJs,
+  FaLightbulb,
+  FaPuzzlePiece,
+  FaReact,
+  FaSearch,
+  FaShoppingCart,
+} from "react-icons/fa";
+import { useLanguage } from "@/components/LanguageProvider";
+import { certifications, publications } from "@/data/site";
+
+const skills = [
+  ["UI/UX Design", FaLightbulb],
+  ["User Research", FaSearch],
+  ["Figma & Prototyping", FaFigma],
+  ["HTML / CSS / JS", FaJs],
+  ["React / Next.js", FaReact],
+  ["WordPress / Shopify", FaShoppingCart],
+  ["Design Systems", FaPuzzlePiece],
+  ["UX Research (PLS-SEM)", FaChartLine],
+];
+
+const stats = [
+  { key: "respondents", value: "193" },
+  { key: "interviews", value: "5" },
+  { key: "dimensions", value: "13" },
+  { key: "hedonic", value: "5.49" },
+  { key: "pragmatic", value: "5.41" },
+];
+
+const uxScores = [
+  { label: "Pragmatic UX", value: 5.41 },
+  { label: "Hedonic UX", value: 5.49 },
+];
+
+export default function HomeContent() {
+  const { text } = useLanguage();
+
+  return (
+    <main className='min-h-screen bg-background'>
+      <section className='min-h-screen flex flex-col md:flex-row items-center justify-center px-4 gap-12 max-w-7xl mx-auto'>
+        <div className='relative group'>
+          <div className='absolute -inset-1 bg-border rounded-2xl' />
+          <Image
+            src='/images/profile.jpg'
+            alt='Hanif Nugraha'
+            width={512}
+            height={640}
+            priority
+            className='relative w-64 h-80 object-cover rounded-xl shadow-xl grayscale group-hover:grayscale-0 transition-all'
+          />
+        </div>
+        <div className='max-w-xl text-left'>
+          <div className='reveal'>
+            <span className='text-accent font-bold tracking-widest uppercase text-sm mb-4 block'>
+              {text.home.availability}
+            </span>
+            <h1 className='text-5xl md:text-7xl font-black mb-8 leading-[0.9] tracking-tighter'>
+              HELLO!
+              <br />
+              I&apos;M <span className='text-accent'>HANIF.</span>
+            </h1>
+            <p className='text-xl md:text-2xl text-secondary mb-8 leading-relaxed font-medium'>
+              {text.home.intro}
+            </p>
+            <div className='flex flex-wrap gap-4'>
+              <Link
+                href='/projects'
+                className='btn-primary inline-block px-8 py-4 text-lg font-bold'>
+                {text.home.viewProjects}
+              </Link>
+              <Link
+                href='/contact'
+                className='btn-secondary inline-block px-8 py-4 text-lg font-bold'>
+                {text.home.letsTalk}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='py-20 px-4 bg-surface'>
+        <div className='max-w-4xl mx-auto'>
+          <h2 className='text-3xl font-bold mb-8'>{text.home.skills}</h2>
+          <p className='text-lg text-secondary mb-8'>{text.home.experience}</p>
+          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4'>
+            {skills.map(([name, Icon]) => (
+              <div
+                key={name}
+                className='p-5 text-center bg-background border border-border rounded-2xl'>
+                <Icon className='mx-auto mb-3 text-xl text-accent' />
+                <span className='font-medium text-primary'>{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className='py-20 px-4'>
+        <div className='max-w-4xl mx-auto'>
+          <h2 className='text-3xl font-bold mb-6'>{text.home.research}</h2>
+          <p className='text-lg text-secondary mb-8'>{text.home.researchIntro}</p>
+          <div className='p-8 bg-surface border border-border rounded-2xl'>
+            <h3 className='text-xl font-bold mb-2'>{text.home.studyTitle}</h3>
+            <p className='text-secondary'>{text.home.studyBody}</p>
+            <div className='mt-8 grid grid-cols-2 md:grid-cols-5 gap-3'>
+              {stats.map((stat) => (
+                <div
+                  key={stat.key}
+                  className='rounded-xl border border-border bg-background p-4'>
+                  <strong className='block text-2xl'>{stat.value}</strong>
+                  <span className='text-xs text-secondary'>{text.home.stats[stat.key]}</span>
+                </div>
+              ))}
+            </div>
+            <div className='mt-8'>
+              {uxScores.map((score) => (
+                <div key={score.label} className='mb-3'>
+                  <div className='mb-1 flex justify-between text-sm'>
+                    <span>{score.label}</span>
+                    <span>{score.value}</span>
+                  </div>
+                  <div className='h-3 rounded-full bg-border'>
+                    <div
+                      className='h-3 rounded-full bg-accent'
+                      style={{ width: `${(score.value / 7) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+              <p className='mt-3 text-xs text-secondary'>
+                Order-status pleasure: 8.4 / 9 across five interview participants.
+              </p>
+            </div>
+          </div>
+          <ul className='grid md:grid-cols-2 gap-4 mt-6 list-disc list-inside'>
+            {publications.map((publication) => (
+              <li key={publication.title}>
+                {publication.authors}. {publication.title}{" "}
+                <span className='text-accent'>{publication.venue}</span>. {publication.status}.
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className='py-20 px-4 bg-background'>
+        <div className='max-w-4xl mx-auto'>
+          <h2 className='text-3xl font-bold mb-8'>{text.home.certifications}</h2>
+          <div className='grid md:grid-cols-2 gap-8'>
+            {certifications.map(([title, org, year]) => (
+              <div key={title} className='p-8 bg-surface border border-border rounded-2xl'>
+                <h3 className='text-xl font-bold'>{title}</h3>
+                <p className='text-secondary font-medium mt-3'>
+                  {org} · {year}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className='py-32 px-4'>
+        <div className='max-w-4xl mx-auto text-center p-16 rounded-[3rem] bg-surface border border-border'>
+          <h2 className='text-4xl md:text-6xl font-black mb-8'>{text.home.collaborate}</h2>
+          <p className='text-xl text-secondary mb-12'>{text.home.contactText}</p>
+          <Link href='/contact' className='btn-primary inline-block px-12 py-5 text-xl font-bold'>
+            {text.home.letsTalk}
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}

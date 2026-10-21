@@ -1,11 +1,11 @@
 "use client";
 
-import { MotionButton, MotionDiv, MotionNav } from "@/components/motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaDribbble, FaLinkedin } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { useLanguage } from "@/components/LanguageProvider";
+import { site } from "@/data/site";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -27,33 +27,14 @@ export default function Navbar() {
     { name: text.nav.contact, href: "/contact" },
   ];
 
-  const menuVariants = {
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: { duration: 0.3, ease: "easeIn" },
-    },
-  };
-
   return (
-    <MotionNav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 w-full z-50 px-4 transition-all duration-300 ${
+    <nav
+      className={`nav-enter fixed top-0 left-0 right-0 w-full z-50 px-4 transition-all duration-300 ${
         scrolled ? "bg-surface shadow-md border-b border-border" : "bg-surface"
       }`}>
       <div className='px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
-          <Link
-            href='/'
-            className='logo text-primary'
-            onClick={() => setIsOpen(false)}>
+          <Link href='/' className='logo text-primary' onClick={() => setIsOpen(false)}>
             Hn
           </Link>
 
@@ -74,13 +55,17 @@ export default function Navbar() {
 
             {/* Resume Download */}
             <a
-              href='/resume.pdf'
-              download='Hanif-Nugraha-Resume-EN.pdf'
+              href={site.resume}
+              download={site.resumeFileName}
               className='flex items-center text-secondary hover:text-primary transition-colors duration-200'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
               {text.nav.resume}
             </a>
-            <button type='button' onClick={toggleLanguage} aria-label='Switch language' className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
+            <button
+              type='button'
+              onClick={toggleLanguage}
+              aria-label='Switch language'
+              className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
               {text.nav.language}
             </button>
 
@@ -102,9 +87,8 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <MotionButton
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
+            type='button'
             onClick={() => setIsOpen(!isOpen)}
             className='md:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors duration-200'>
             <span className='sr-only'>Open menu</span>
@@ -135,16 +119,15 @@ export default function Navbar() {
                 />
               </svg>
             )}
-          </MotionButton>
+          </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <MotionDiv
-        initial='closed'
-        animate={isOpen ? "open" : "closed"}
-        variants={menuVariants}
-        className='md:hidden overflow-hidden bg-surface/95 backdrop-blur-lg border-t border-border'>
+      <div
+        className={`md:hidden overflow-hidden bg-surface/95 backdrop-blur-lg border-t border-border transition-all duration-300 ${
+          isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+        }`}>
         <div className='px-4 pt-4 pb-6 space-y-4'>
           {navItems.map((item) => (
             <Link
@@ -173,18 +156,22 @@ export default function Navbar() {
               </a>
             </div>
             <a
-              href='/resume.pdf'
-              download='Hanif-Nugraha-Resume-EN.pdf'
+              href={site.resume}
+              download={site.resumeFileName}
               className='flex items-center text-accent font-medium'>
               <IoDocumentTextOutline className='w-5 h-5 mr-1' />
               {text.nav.resume}
             </a>
-            <button type='button' onClick={toggleLanguage} aria-label='Switch language' className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
+            <button
+              type='button'
+              onClick={toggleLanguage}
+              aria-label='Switch language'
+              className='rounded-full border border-border px-3 py-1 text-xs font-bold text-secondary hover:border-accent hover:text-primary'>
               {text.nav.language}
             </button>
           </div>
         </div>
-      </MotionDiv>
-    </MotionNav>
+      </div>
+    </nav>
   );
 }
