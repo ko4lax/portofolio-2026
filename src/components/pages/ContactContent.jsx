@@ -18,13 +18,13 @@ export default function ContactContent() {
   return (
     <main className='min-h-screen bg-background flex flex-col items-center justify-center px-4'>
       <div className='reveal mb-16 text-center'>
-        <span className='text-sm md:text-base font-bold tracking-[0.3em] text-accent uppercase'>
+        <h1 className='text-sm md:text-base font-bold tracking-[0.3em] text-accent uppercase'>
           {text.eyebrow}
-        </span>
+        </h1>
       </div>
       <a
         href='mailto:hanifnnugraha@gmail.com'
-        className='text-center text-4xl md:text-7xl lg:text-8xl font-black text-primary uppercase leading-tight tracking-tighter hover:text-accent transition-colors'>
+        className='text-center text-4xl md:text-7xl lg:text-8xl font-black text-primary uppercase leading-tight tracking-tighter hover:opacity-60 transition-opacity'>
         hanifnnugraha
         <br />
         @gmail.com
