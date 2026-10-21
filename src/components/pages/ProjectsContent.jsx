@@ -22,6 +22,13 @@ export default function ProjectsContent() {
           year: "Tahun",
           details: "Detail proyek",
           noImage: "Detail proyek",
+          context: "Konteks",
+          approach: "Pendekatan",
+          deliverables: "Hasil kerja",
+          findings: "Apa kata data",
+          implications: "Implikasi untuk desain",
+          limits: "Ketelitian dan batasan",
+          team: "Tim dan peran",
         }
       : {
           title: "Selected Work",
@@ -32,6 +39,13 @@ export default function ProjectsContent() {
           year: "Year",
           details: "Project detail",
           noImage: "Project detail",
+          context: "Context",
+          approach: "Approach",
+          deliverables: "Deliverables",
+          findings: "What the data said",
+          implications: "What it means for design",
+          limits: "Rigour and limits",
+          team: "Team and role",
         };
 
   return (
