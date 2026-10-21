@@ -18,10 +18,10 @@ export default function ContactContent() {
         };
 
   return (
-    <main className='flex min-h-screen flex-col justify-center bg-background'>
+    <section id='contact' className='flex min-h-screen flex-col justify-center border-t border-border bg-background'>
       <div className='mx-auto w-full max-w-shell px-5 pb-24 pt-32 md:px-10'>
         <div className='reveal border-t-2 border-primary pt-8'>
-          <h1 className='mono uppercase text-secondary'>{text.eyebrow}</h1>
+          <h2 className='mono uppercase text-secondary'>{text.eyebrow}</h2>
 
           <a
             href={`mailto:${site.email}`}
@@ -41,6 +41,6 @@ export default function ContactContent() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

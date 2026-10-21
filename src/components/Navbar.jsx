@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -10,12 +8,22 @@ import { site } from "@/data/site";
 
 const MENU_ID = "mobile-menu";
 
+// Single-page site: the nav moves between in-page sections. These ids match the
+// section elements in src/components/pages/*Content.jsx.
+const SECTION_IDS = ["home", "about", "projects", "contact"];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const toggleRef = useRef(null);
-  const pathname = usePathname();
   const { text, toggleLanguage } = useLanguage();
+
+  const navItems = [
+    { name: text.nav.about, href: "#about" },
+    { name: text.nav.projects, href: "#projects" },
+    { name: text.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,11 +34,40 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close the panel after a client-side navigation.
+  // Highlight the section currently in view. Plain anchor links already scroll
+  // without JavaScript, so this is decoration on top of working behaviour.
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    if (sections.length === 0 || typeof IntersectionObserver === "undefined") return undefined;
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) setActiveSection(visible[0].target.id);
+      },
+      { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.2, 0.5, 1] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  // Arriving on /#projects (for example from the old /projects redirect) should
+  // land on that section once fonts and images have settled.
+  useEffect(() => {
+    const { hash } = window.location;
+    if (!hash) return undefined;
+
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return undefined;
+
+    const timer = window.setTimeout(() => target.scrollIntoView({ block: "start" }), 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  // Close the panel after an in-page jump, and let Escape back out of it.
   useEffect(() => {
     if (!isOpen) return undefined;
 
@@ -44,11 +81,7 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  const navItems = [
-    { name: text.nav.about, href: "/about" },
-    { name: text.nav.projects, href: "/projects" },
-    { name: text.nav.contact, href: "/contact" },
-  ];
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav
@@ -56,22 +89,29 @@ export default function Navbar() {
         scrolled ? "border-border bg-background" : "border-transparent"
       }`}>
       <div className='mx-auto flex h-16 max-w-shell items-center justify-between px-5 md:h-20 md:px-10'>
-        <Link
-          href='/'
-          className='font-display text-xl font-semibold tracking-[-0.04em] text-primary'
-          onClick={() => setIsOpen(false)}>
+        <a
+          href='#home'
+          onClick={closeMenu}
+          aria-label='Hanif Nugraha, back to top'
+          className='font-display text-xl font-semibold tracking-[-0.04em] text-primary'>
           Hn
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <div className='hidden items-center gap-8 md:flex'>
           {navItems.map((item) => (
-            <Link
-              key={item.name}
+            <a
+              key={item.href}
               href={item.href}
-              className='link-rule mono text-secondary hover:text-primary'>
+              onClick={closeMenu}
+              aria-current={activeSection === item.href.slice(1) ? "location" : undefined}
+              className={`link-rule mono ${
+                activeSection === item.href.slice(1)
+                  ? "link-rule-active text-primary"
+                  : "text-secondary hover:text-primary"
+              }`}>
               {item.name}
-            </Link>
+            </a>
           ))}
 
           <span className='h-4 w-px bg-border' aria-hidden='true' />
@@ -149,13 +189,14 @@ export default function Navbar() {
         }`}>
         <div className='px-5 pb-6 pt-2'>
           {navItems.map((item) => (
-            <Link
-              key={item.name}
+            <a
+              key={item.href}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
+              aria-current={activeSection === item.href.slice(1) ? "location" : undefined}
               className='flex items-baseline justify-between border-b border-border py-4 font-display text-2xl tracking-[-0.03em] text-primary'>
               {item.name}
-            </Link>
+            </a>
           ))}
           <div className='flex items-center justify-between pt-5'>
             <div className='flex gap-5'>

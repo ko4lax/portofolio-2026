@@ -43,8 +43,8 @@ export default function AboutContent() {
   const text = about[language];
 
   return (
-    <main className='min-h-screen bg-background'>
-      <section className='mx-auto max-w-shell px-5 pt-28 md:px-10 md:pt-32'>
+    <section id='about' className='border-t border-border bg-background'>
+      <section className='mx-auto max-w-shell px-5 pt-12 md:px-10 md:pt-14'>
         <div className='reveal'>
           <div className='frame aspect-[16/6] w-full'>
             <Image
@@ -60,9 +60,9 @@ export default function AboutContent() {
             Bandung, West Java, Indonesia
           </span>
 
-          <h1 className='mt-20 max-w-4xl text-[12vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-6xl md:text-7xl'>
+          <h2 className='mt-20 max-w-4xl text-[12vw] font-semibold leading-[0.92] tracking-[-0.045em] sm:text-6xl md:text-7xl'>
             {text.title} <span className='display-outline'>:)</span>
-          </h1>
+          </h2>
 
           <div className='mt-16 grid gap-x-16 gap-y-12 lg:grid-cols-12'>
             <div className='space-y-6 lg:col-span-7'>
@@ -89,6 +89,6 @@ export default function AboutContent() {
           </div>
         </div>
       </section>
-    </main>
+    </section>
   );
 }
