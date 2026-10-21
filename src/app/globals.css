@@ -347,3 +347,49 @@
 .dark main h6 {
   @apply text-neutral-100;
 }
+
+/* ---------------------------------------------------------------
+   Entrance motion.
+   Kept in CSS, not JavaScript: the prerendered HTML renders the final
+   visible state, so content is never hidden while the bundle loads and
+   it remains readable when JavaScript is blocked.
+   --------------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes nav-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: rise 0.5s ease-out both;
+}
+
+.reveal-delay {
+  animation-delay: 0.25s;
+}
+
+.nav-enter {
+  animation: nav-in 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-delay,
+  .nav-enter {
+    animation: none;
+  }
+}
