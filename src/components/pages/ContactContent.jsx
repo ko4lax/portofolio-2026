@@ -1,9 +1,11 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { site } from "@/data/site";
 
 export default function ContactContent() {
   const { language } = useLanguage();
+  const [emailUser, emailDomain] = site.email.split("@");
   const text =
     language === "id"
       ? {
@@ -23,11 +25,11 @@ export default function ContactContent() {
         </h1>
       </div>
       <a
-        href='mailto:hanifnnugraha@gmail.com'
+        href={`mailto:${site.email}`}
         className='text-center text-4xl md:text-7xl lg:text-8xl font-black text-primary uppercase leading-tight tracking-tighter hover:opacity-60 transition-opacity'>
-        hanifnnugraha
+        {emailUser}
         <br />
-        @gmail.com
+        @{emailDomain}
       </a>
       <div className='reveal reveal-delay mt-24 text-center'>
         <p className='text-secondary text-lg md:text-xl font-medium'>{text.location}</p>
