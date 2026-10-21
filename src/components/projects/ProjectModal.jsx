@@ -112,7 +112,48 @@ export default function ProjectModal({ project, labels, onClose }) {
             </div>
           ))}
         </dl>
+
+        {/* Case study. Only the rows a project actually has are rendered, so a
+            course project stays short and the thesis carries the full record. */}
+        {project.case && (
+          <dl className='mt-12 border-t-2 border-primary'>
+            {caseRows(project.case, labels).map((row) => (
+              <div key={row.label} className='grid gap-x-8 gap-y-2 border-b border-border py-6 md:grid-cols-12'>
+                <dt className='mono uppercase text-secondary md:col-span-3'>{row.label}</dt>
+                <dd className='md:col-span-9'>
+                  {row.list ? (
+                    <ul className='space-y-3'>
+                      {row.list.map((item) => (
+                        <li key={item} className='relative pl-6 text-secondary leading-6'>
+                          <span
+                            aria-hidden='true'
+                            className='absolute left-0 top-[0.7em] h-px w-3 bg-primary'
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className='text-secondary leading-6'>{row.text}</p>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </div>
     </div>
   );
+}
+
+function caseRows(study, labels) {
+  return [
+    { label: labels.context, text: study.context },
+    { label: labels.approach, list: study.approach },
+    { label: labels.deliverables, list: study.deliverables },
+    { label: labels.findings, list: study.findings },
+    { label: labels.implications, list: study.implications },
+    { label: labels.limits, text: study.limits },
+    { label: labels.team, text: study.team },
+  ].filter((row) => (row.list ? row.list.length > 0 : Boolean(row.text)));
 }

@@ -12,7 +12,8 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 import { useLanguage } from "@/components/LanguageProvider";
-import { certifications, publications } from "@/data/site";
+import ResearchSection from "@/components/pages/ResearchSection";
+import { certifications } from "@/data/site";
 
 const skills = [
   ["UI/UX Design", FaLightbulb],
@@ -23,19 +24,6 @@ const skills = [
   ["WordPress / Shopify", FaShoppingCart],
   ["Design Systems", FaPuzzlePiece],
   ["UX Research (PLS-SEM)", FaChartLine],
-];
-
-const stats = [
-  { key: "respondents", value: "193" },
-  { key: "interviews", value: "5" },
-  { key: "dimensions", value: "13" },
-  { key: "hedonic", value: "5.49" },
-  { key: "pragmatic", value: "5.41" },
-];
-
-const uxScores = [
-  { label: "Pragmatic UX", value: 5.41 },
-  { label: "Hedonic UX", value: 5.49 },
 ];
 
 export default function HomeContent() {
@@ -98,73 +86,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Research: the instrument, its numbers, its result. */}
-      <section className='border-t border-border bg-surface'>
-        <div className='mx-auto max-w-shell px-5 py-20 md:px-10 md:py-28'>
-          <div className='grid gap-x-16 gap-y-8 lg:grid-cols-12'>
-            <h2 className='text-3xl md:text-4xl lg:col-span-4'>{text.home.research}</h2>
-            <p className='measure text-lg text-secondary lg:col-span-8'>
-              {text.home.researchIntro}
-            </p>
-          </div>
-
-          <div className='mt-16 border-t-2 border-primary pt-10'>
-            <h3 className='max-w-4xl text-2xl font-medium md:text-3xl'>{text.home.studyTitle}</h3>
-            <p className='measure mt-6 text-secondary'>{text.home.studyBody}</p>
-
-            <div className='mt-14 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-5'>
-              {stats.map((stat) => (
-                <div key={stat.key} className='bg-background px-5 py-6'>
-                  <strong className='block font-display text-3xl font-semibold tabular-nums tracking-[-0.03em] text-primary'>
-                    {stat.value}
-                  </strong>
-                  <span className='mono mt-3 block text-secondary'>{text.home.stats[stat.key]}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className='mt-14 max-w-3xl'>
-              {uxScores.map((score) => (
-                <div
-                  key={score.label}
-                  className='grid grid-cols-[6.5rem_1fr_3.5rem] items-center gap-4 border-b border-border py-5'>
-                  <span className='mono text-secondary'>{score.label}</span>
-                  <span className='relative block h-[6px] w-full bg-border'>
-                    <span
-                      className='block h-full bg-primary'
-                      style={{ width: `${(score.value / 7) * 100}%` }}
-                    />
-                    {/* Scale ticks: quarter marks on the track, no added copy. */}
-                    <span
-                      className='pointer-events-none absolute inset-0 flex justify-between'
-                      aria-hidden='true'>
-                      <span className='w-px bg-background' />
-                      <span className='w-px bg-background' />
-                      <span className='w-px bg-background' />
-                    </span>
-                  </span>
-                  <span className='mono text-right tabular-nums text-primary'>{score.value}</span>
-                </div>
-              ))}
-              <p className='mono mt-5 text-secondary'>
-                Order-status pleasure: 8.4 / 9 across five interview participants.
-              </p>
-            </div>
-          </div>
-
-          <ul className='mt-16 grid gap-px border border-border bg-border md:grid-cols-2'>
-            {publications.map((publication) => (
-              <li key={publication.title} className='bg-surface p-8'>
-                <p className='mono text-secondary'>{publication.authors}.</p>
-                <p className='mt-4 font-display text-lg leading-snug tracking-[-0.02em] text-primary'>
-                  {publication.title} <span className='text-secondary'>{publication.venue}</span>.{" "}
-                  {publication.status}.
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ResearchSection />
 
       {/* Certifications ledger */}
       <section className='border-t border-border'>
