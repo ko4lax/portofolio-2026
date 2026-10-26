@@ -60,6 +60,205 @@ export const projects = [
     }
   },
   {
+    "slug": "kerjaku",
+    "title": "KerjaKu Job-Seeking App",
+    "kicker": "Self-initiated concept · Mobile app · 2026",
+    "year": "2026",
+    "role": "Product Designer, solo",
+    "image": "/projects/kerjaku.jpg",
+    "tags": [
+      "UX Research",
+      "Mobile UX",
+      "Usability Testing"
+    ],
+    "summary": "A job-application tracker for fresh graduates that answers the one question the existing platforms ignore: where does my application actually stand?",
+    "details": "Fresh graduates send dozens of applications across several platforms and then lose track of what happened after the submit button. KerjaKu puts search, status tracking and feedback into one flow: what was sent, where it stands, and what to improve next. I ran 12 qualitative interviews, a 7-day diary study and a competitor audit of four platforms, then designed seven screens and tested the flow with eight participants across three revision rounds.",
+    "metrics": [
+      {
+        "label": "Interviews",
+        "value": "12"
+      },
+      {
+        "label": "Usability participants",
+        "value": "8"
+      },
+      {
+        "label": "SUS after revisions",
+        "value": "82"
+      },
+      {
+        "label": "Average applications",
+        "value": "47 / 3 months"
+      }
+    ],
+    "case": {
+      "context": "Indonesian fresh graduates apply through JobStreet, Glints, LinkedIn and Kalibrr at the same time, then re-enter every application into a spreadsheet. Roughly 47 applications in three months, and about one in five ever gets a reply. The research question was not how to find more listings but how to make the position of an existing application visible.",
+      "approach": [
+        "Ran 12 semi-structured interviews of 30 to 40 minutes with fresh graduates holding zero to one year of experience in Jabodetabek.",
+        "Added a 7-day diary study with five participants who logged every application, reply and reaction.",
+        "Audited JobStreet, Glints, LinkedIn and Kalibrr, focusing on the status flow and the feedback each platform gives.",
+        "Clustered the findings into four patterns: unclear status, ghosting read as personal failure, double tracking, and listings that ignore the experience filter.",
+        "Locked four design principles, then used them to cut the first prototype down from six tabs and a statistics dashboard to three core surfaces.",
+        "Tested the flow with eight fresh graduates across five tasks per session, then revised terminology, list structure and the match score over three rounds."
+      ],
+      "deliverables": [
+        "Application board that merges submissions from any platform into one status line: sent, seen, shortlisted, interview, done.",
+        "Match score from 0 to 100 that always shows the criteria met and the criteria still missing.",
+        "Weekly report on applications sent, replies received, and the skills rejected listings most often asked for.",
+        "Per-listing CV variants with a completeness checklist before sending.",
+        "Seven-screen interactive prototype, an icon set and a status mascot."
+      ],
+      "findings": [
+        "Participants could always find listings. They could not answer where a given application stood.",
+        "Of an average 47 applications, only about nine had a status the applicant could see.",
+        "A rejection without a reason was read as personal failure rather than as usable information.",
+        "The first prototype with six tabs made participants slower to find a status, so the navigation went back to three surfaces."
+      ],
+      "implications": [
+        "Show the position of an application before showing another catalogue of listings.",
+        "Attach one readable reason to every rejection, even a single skill gap.",
+        "Skip streaks and catch-up nudges: anxiety is not a design fuel.",
+        "Refresh status from email instead of asking the user to enter it twice."
+      ],
+      "limits": "Self-initiated concept, not a live product. The 12 interviews and the diary study are qualitative, so the four patterns are patterns rather than generalisable numbers. The usability round covered eight participants in moderated remote sessions: seven of eight completed the apply flow unaided, SUS rose from 68 in the first version to 82 after the third revision, and average time to find an application status was 12 seconds. The Figma case study is written in Indonesian; this summary is translated.",
+      "team": "Solo project. Research, flows, interface, design system, prototype and usability testing."
+    }
+  },
+  {
+    "slug": "lost-breakage",
+    "title": "Lost & Breakage Management System",
+    "kicker": "Self-initiated concept · F&B operations · 2026",
+    "year": "2026",
+    "role": "Product Designer: research, UX, UI, design system",
+    "image": "/projects/lost.jpg",
+    "tags": [
+      "UX Research",
+      "Product Design",
+      "Design System"
+    ],
+    "summary": "A mobile report flow and a desktop review queue that turn paper breakage logs into accountable loss data for multi-outlet F&B teams.",
+    "details": "Restaurants and cafes lose an estimated 2 to 4 percent of revenue to breakage, spoilage and unrecorded comps, and most of it never gets written down. I designed two surfaces: a report flow staff can finish in under 30 seconds while the guest is still at the table, and a desktop queue where a manager triages, prices and resolves each incident. Six interviews and one Friday dinner service showed the barrier was friction at the moment of reporting, not awareness of the loss.",
+    "metrics": [
+      {
+        "label": "Stakeholder interviews",
+        "value": "6"
+      },
+      {
+        "label": "Shift observation",
+        "value": "4 hours"
+      },
+      {
+        "label": "Report time, modelled",
+        "value": "4 min → 28 s"
+      },
+      {
+        "label": "Loss categories",
+        "value": "6"
+      }
+    ],
+    "case": {
+      "context": "An 80-seat outlet loses stock four ways: breakage, spoilage, staff error and unrecorded comps. Three of the four are logged, if at all, on a paper shift sheet clipped to the pass and filled at close from memory. Industry benchmarks put the loss at 2 to 4 percent of revenue. None of the six interviewed outlets could name the top three items lost last month, and the delta surfaced three weeks later at monthly stock count.",
+      "approach": [
+        "Interviewed six stakeholders separately (two outlet managers, two shift supervisors, one server, one kitchen lead) so manager-led answers would not shape the rest.",
+        "Shadowed four hours of a Friday dinner service at one 80-seat outlet, watching the pass and the closing count. The clipboard was touched eleven times and nobody opened the back-office POS report.",
+        "Audited three existing tools: a generic inventory app, a POS breakage add-on and the spreadsheet still in use at two outlets.",
+        "Grouped 47 observations into four clusters by the moment in the shift where the loss happens, then wrote the five insights that changed the brief.",
+        "Designed three flows with a happy path and an edge case each: mobile report, desktop review, desktop analytics.",
+        "Built a design system of 15 tokens and four components, with empty, loading, error and success designed as first-class screens.",
+        "Prototyped the loop report, review, resolve, analytics, including a 120 ms cause-chip interaction tuned to a user who is standing up."
+      ],
+      "deliverables": [
+        "Mobile report flow in three screens (category, detail, confirmation): four taps, and the item name is the only keyboard moment.",
+        "Desktop review queue with an incident detail view that keeps the decision panel next to the evidence.",
+        "Analytics with cost trend, ranked items, cost by cause and resolution stats, plus CSV export for the accountant.",
+        "Category and settings screen where the taxonomy driving every chart is defined.",
+        "Design system: 15 colour tokens, a ten-step type scale, spacing and radius rules, four components and five constraints.",
+        "Five-screen clickable prototype covering report, review, resolution and the updated week total."
+      ],
+      "findings": [
+        "Every participant could name the three items lost most often. None could put a number on them, so detection was never the problem.",
+        "Staff avoided writing their name because they assumed the cost would come out of their pay. The field that made the data useful was the field that killed the entry.",
+        "Half the loss had a cause the log never captured: a walk-in that ran warm on Fridays, deliveries that arrived short.",
+        "Managers wanted a Monday conversation with one person about one item, not a chart review.",
+        "Paper survived because it lived on the pass. Any tool on a back-office PC lost to it by default."
+      ],
+      "implications": [
+        "Remove every field the system can stamp: shift, outlet and reporter come from the session.",
+        "Frame accountability as review rather than punishment, otherwise nobody types a name.",
+        "Keep the decision beside the evidence so the manager never navigates away to act.",
+        "Treat the taxonomy as the product: six categories, each mapping to a different operational fix.",
+        "Design empty, loading and error states with the same care as the happy path. A loss tool that looks broken is a tool nobody uses."
+      ],
+      "limits": "Self-initiated concept, not a shipped product. The improvement figures are modelled pilot targets, not measured outcomes: time to report 4 minutes to 28 seconds, incident capture 61 to 94 percent, resolution 3.2 days to 1.1 days, cost recovered from none to IDR 1.2M per outlet per month. The baseline comes from observation and interviews; the target column is a goal. No POS integration, no inventory reconciliation and no production data.",
+      "team": "Solo project. Research, flows, wireframes, interface, design system and prototype, built in Figma with Figma MCP; Maze was planned for the pilot test."
+    }
+  },
+  {
+    "slug": "metric-saas",
+    "title": "Metric SaaS Dashboard Template",
+    "kicker": "Self-initiated concept · SaaS analytics · 2026",
+    "year": "2026",
+    "role": "Product Designer",
+    "image": "/projects/metric.jpg",
+    "tags": [
+      "Dashboard",
+      "Design System",
+      "Prototype"
+    ],
+    "summary": "A SaaS revenue dashboard concept where every total can be explained: comparison period, signed movement, and an account list that never rewrites company numbers.",
+    "details": "A dashboard template for SaaS teams to monitor growth, explain revenue changes and follow up on customer activity. Fictional users and sample data, with no interviews, no usability sessions and no impact claims. The concept is built around one review path (compare the month, explain the movement, narrow the accounts), and every screen keeps the reporting period visible so a stale snapshot cannot be read as a current result.",
+    "metrics": [
+      {
+        "label": "Design tokens",
+        "value": "28"
+      },
+      {
+        "label": "Text styles",
+        "value": "10"
+      },
+      {
+        "label": "Product states",
+        "value": "9"
+      },
+      {
+        "label": "Research evidence",
+        "value": "None, concept"
+      }
+    ],
+    "case": {
+      "context": "A small SaaS team reviews September before its weekly revenue meeting. The working assumption is that totals, customer context and event history live in separate views, so a growth number arrives without the explanation behind it. The scenario uses a fictional business: $120,000 opening MRR, $124,800 closing MRR, 1,248 paying customers and 98 percent logo retention.",
+      "approach": [
+        "Wrote three illustrative roles with the question each one brings: a founder who needs a defensible summary, revenue operations who needs the movement explained, and customer success who needs an account-level starting point.",
+        "Scoped one review path in four steps: set the period, scan the business, explain the movement, narrow the accounts.",
+        "Kept the reporting period and the comparison month beside every KPI so an old snapshot cannot pass as a current result.",
+        "Separated logo retention from gross revenue retention and made the denominator part of the interface.",
+        "Reconciled the monthly change from signed, labelled values: $7.2k new, plus $3.6k expansion, minus $2.4k contraction, minus $3.6k churn, against a $120,000 opening balance.",
+        "Built the interface on 28 scoped variables and 10 text styles, with Manrope for hierarchy, Inter for copy and IBM Plex Mono for values and periods.",
+        "Specified a finite-state prototype: two preset months, one plan filter and one sort toggle, with every unbuilt control labelled as out of scope."
+      ],
+      "deliverables": [
+        "Desktop overview with four KPIs, a six-month MRR trend, plan mix, customer snapshot and recent activity.",
+        "Revenue analytics view with closing MRR, signed movement categories, retention and the account table behind the numbers.",
+        "A 390 px mobile overview that reflows the review order instead of shrinking the desktop table.",
+        "Component set covering navigation, KPI card, charts, filters, search, status badges, table rows and data feedback states.",
+        "Linked desktop and mobile demonstration with a written scope contract."
+      ],
+      "findings": [
+        "A single total is not an explanation: the movement has to be signed, labelled and reconcilable to the opening balance.",
+        "Table filters change what the table shows, never the company totals, and that boundary has to be visible on the screen.",
+        "98 percent logo retention and 95 percent gross revenue retention answer different questions, so the denominator belongs in the interface.",
+        "Muted text at 5.72:1 and teal at 6.07:1 clear contrast on white, but contrast checks alone do not prove end-to-end accessibility."
+      ],
+      "implications": [
+        "Design the review path before the charts: period, business health, movement, accounts.",
+        "Put the comparison period next to the KPI rather than in a filter row.",
+        "Give an empty state a way back to the data instead of a zeroed axis."
+      ],
+      "limits": "Concept, not client work. Fictional users and synthetic sample data, with no interviews, usability sessions, telemetry or business-impact measurement, so the intended benefits remain hypotheses. Two preset months and one plan toggle only: free-text search, arbitrary date ranges, hover and loading transitions, keyboard focus behaviour and a full mobile analytics view are specifications rather than working controls.",
+      "team": "Solo project. Scenario, roles, flows, wireframes, interface, design system and prototype."
+    }
+  },
+  {
     "slug": "me-lia",
     "title": "Me+Lia — Storefront Redesign",
     "kicker": "WaitWhatWeb · Jul–Sep 2024",
