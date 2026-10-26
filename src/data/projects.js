@@ -476,23 +476,35 @@ export const projects = [
       "Architecture"
     ],
     "summary": "Portfolio website UI shaped around an architecture studio's own visual language.",
-    "details": "Architecture studio portfolio website for a Digitalkultr client, with the UI designed to mirror the studio's own design language: a filterable and sortable project gallery, project detail pages and an About page.",
+    "details": "Design for FAZAFAIZAN ARCHITEKTÜR: a full-bleed hero of A-frame housing under the line Passionate, visionary, modern, architecture, then a Work index that filters by Home, Interior and Restaurant and sorts by position, alphabetical or random. Each card pairs a title with its category and building type, so Roastery WB reads as Commercial, Roastery Coffee rather than as another private house. Work, About and Contact sit in a three-item nav so the gallery stays the main surface.",
     "metrics": [
       {
-        "label": "Deliverable",
-        "value": "Design system + site UI"
+        "label": "Screens",
+        "value": "4"
+      },
+      {
+        "label": "Gallery filters",
+        "value": "3"
+      },
+      {
+        "label": "Sort options",
+        "value": "4"
       }
     ],
     "case": {
-      "context": "An architecture studio needed a portfolio site whose interface felt like an extension of the studio's own work.",
+      "context": "An architecture studio needed a portfolio site whose interface felt like an extension of the studio's own work, with the gallery as the main surface rather than a marketing page.",
       "approach": [
-        "Studied the studio's existing design language and carried it into the interface.",
-        "Scoped the site around the project gallery as the primary surface."
+        "Studied the studio's existing design language and carried it into the interface, including the uppercase wordmark and white type set over building photography.",
+        "Built the hero as one full-bleed render with the studio's four-word statement, so the first screen is work rather than a paragraph about the studio.",
+        "Scoped the Work page around filters that match how the studio talks about its own projects: Home, Interior, Restaurant.",
+        "Added four sort orders (position, alphabetical in both directions, random) so a visitor can move through the index the way a printed portfolio is flipped.",
+        "Paired every gallery card with its category and its building type, so a coffee roastery does not read as a private house."
       ],
       "deliverables": [
-        "Filterable and sortable project gallery.",
-        "Project detail pages.",
-        "About page."
+        "Home with the full-bleed hero and studio navigation.",
+        "Work index with three filters, four sort orders and the project card layout.",
+        "About page.",
+        "Project detail pages."
       ]
     }
   },
@@ -599,25 +611,45 @@ export const projects = [
     "kicker": "Course & exploration project",
     "year": "2023",
     "role": "UI/UX Designer · team project",
-    "image": null,
+    "image": "/projects/bni-redesign.jpg",
     "tags": [
       "Figma",
       "Gestalt",
       "Mobile UX"
     ],
-    "summary": "Team analysis of where the BNI mobile banking interface breaks Gestalt principles, with proposals for a more organised design.",
-    "details": "A team exercise analysing where the BNI mobile banking app breaks Gestalt principles, followed by proposals for a more organised visual and interaction structure in Figma.",
-    "metrics": [],
+    "summary": "Team redesign of the BNI mobile app: a login that offers biometric entry, and a home screen that separates actions from balances.",
+    "details": "A team exercise that audited the BNI mobile app against Gestalt principles and rebuilt the screens in Figma. The redesign keeps the bank's identity and reorganises the home screen into blocks: greeting and account, the balance card, four quick actions (Send and Pay, Digital Wallet, Tarik Tunai, Lainnya), then income against expense and a promo slot. The five-item bottom bar stays, with the central QR action given its own weight. Login adds fingerprint entry beside the password field, and the flow extends to a customer care chat room and the registration steps.",
+    "metrics": [
+      {
+        "label": "Redesigned screens",
+        "value": "5"
+      },
+      {
+        "label": "Quick actions",
+        "value": "4"
+      },
+      {
+        "label": "Bottom-bar items",
+        "value": "5"
+      }
+    ],
     "case": {
-      "context": "A team critique exercise using Gestalt principles to diagnose an existing mobile banking interface.",
+      "context": "Mobile banking puts balances, promotions, quick actions and a five-item bottom bar on one screen. The grouping that should make it scannable is what the audit went looking for in the BNI app.",
       "approach": [
-        "Audited the app as a team and catalogued where grouping, proximity and similarity break down.",
-        "Proposed a more organised structure in Figma."
+        "Audited the live app as a team against Gestalt principles, cataloguing where proximity, similarity and common region break down.",
+        "Rebuilt login with User ID and password, a fingerprint shortcut alongside the button, and the existing recovery and support links kept where people already look for them.",
+        "Reorganised the home screen into four blocks, greeting and account, balance card, quick actions, income against expense, so each block carries one kind of information.",
+        "Kept the five-item bottom bar but gave the central QR action its own weight.",
+        "Extended the flow with a customer care chat room and the registration steps."
       ],
       "deliverables": [
-        "Annotated analysis of the interface problems.",
-        "Redesign proposals in Figma."
-      ]
+        "Login with biometric entry.",
+        "Home dashboard with the balance card, four quick actions, income and expense, and the promo slot.",
+        "Customer care chat room.",
+        "Registration flow screens.",
+        "Annotated Gestalt analysis of the original screens."
+      ],
+      "limits": "Team project for a course, and the redesign is a Figma proposal rather than a shipped BNI release. The account holder, balances and promo dates in the screens are placeholders from the mock."
     }
   },
   {
@@ -626,26 +658,45 @@ export const projects = [
     "kicker": "Software engineering course",
     "year": "2023",
     "role": "Designer & HTML/CSS implementer",
-    "image": null,
+    "image": "/projects/vino-vault.jpg",
     "tags": [
       "PHP",
       "HTML",
       "CSS",
       "CRUD"
     ],
-    "summary": "Wine inventory system in pure PHP with CRUD features for a software engineering course.",
-    "details": "A small wine inventory system built in pure PHP with create, read, update and delete workflows for a software engineering course. I designed the interface and implemented it in HTML and CSS.",
-    "metrics": [],
+    "summary": "Wine inventory site in pure PHP: a storefront with search, an item form for the vault, and login and register screens.",
+    "details": "Vino Vault is a course project built without a framework. The storefront opens on a hero over a grapevine illustration, a search field that leads into the catalogue, an About section explaining the vault, and a 3x3 card grid. Three tabs carry the product: Wines, Location and Inventory. The inventory tab is the working half, taking a name, type, quantity, price and description and submitting the item into the vault, with login and register alongside it.",
+    "metrics": [
+      {
+        "label": "Screens",
+        "value": "4"
+      },
+      {
+        "label": "Item fields",
+        "value": "5"
+      },
+      {
+        "label": "Inventory tabs",
+        "value": "3"
+      }
+    ],
     "case": {
-      "context": "A software engineering course project asking for a working CRUD system without a framework.",
+      "context": "A software engineering course asked for a working CRUD system without a framework. The brief was a wine inventory a shop or distributor could use to add bottles, update quantities and read the stock back.",
       "approach": [
         "Designed the interface first, then implemented it in HTML and CSS against the PHP back end.",
+        "Split the product into three tabs, Wines, Location and Inventory, so the entry form does not compete with the catalogue.",
+        "Kept the item form to five fields: name, type, quantity, price and description.",
+        "Built login and register as their own screens rather than overlays, because the course required session handling.",
         "Kept the data model small enough to stay readable."
       ],
       "deliverables": [
-        "Inventory UI.",
+        "Storefront home with search and the product grid.",
+        "Inventory form with the five fields and a submit action.",
+        "Login and register screens.",
         "HTML and CSS implementation."
-      ]
+      ],
+      "limits": "Course project. The card grid in the screenshots still carries placeholder titles and copy, and the photography is used for non-commercial coursework only."
     }
   },
   {
@@ -654,25 +705,42 @@ export const projects = [
     "kicker": "Web development course",
     "year": "2023",
     "role": "Designer",
-    "image": null,
+    "image": "/projects/dramm.jpg",
     "tags": [
       "Laravel",
       "CRUD",
       "E-commerce"
     ],
-    "summary": "Whisky product site with store and product management workflows.",
-    "details": "A whisky product site with a store and product management, built as a Laravel CRUD course project, covering the product browsing experience and the admin workflows behind it.",
-    "metrics": [],
+    "summary": "Whisky storefront and the store management behind it: a Laravel CRUD exercise with a catalogue, a product page and an admin table.",
+    "details": "DRAMM is a whisky site built as a Laravel CRUD exercise. The storefront opens on a hero about whiskey production, lists three bottles (Monkey Shoulder, Glenfiddich 12, Johnnie Walker Black Label), adds a feature row for deals, a curated database, news and distillery locations, then runs a carousel and an FAQ before the footer. A product page carries a single bottle, and the admin side is a store manager: a form for store name, location and contact details, and a table of existing stores with edit and delete.",
+    "metrics": [
+      {
+        "label": "Screens",
+        "value": "3"
+      },
+      {
+        "label": "Catalogue bottles",
+        "value": "3"
+      },
+      {
+        "label": "Admin actions",
+        "value": "3"
+      }
+    ],
     "case": {
       "context": "A web development course project: a product site with both a customer-facing store and the management side behind it.",
       "approach": [
-        "Designed the storefront and the product management workflows as one system.",
-        "Worked within the Laravel CRUD structure of the course."
+        "Designed the storefront and the store management as one system, so the catalogue the admin edits is the catalogue the shop shows.",
+        "Built the landing page in blocks a visitor moves through: hero, product row, feature list, carousel, FAQ.",
+        "Added a product detail page for a single bottle.",
+        "Built the admin store manager as an add form plus a table with edit and delete, the CRUD half of the exercise."
       ],
       "deliverables": [
-        "Product and store experience.",
-        "Product management workflows."
-      ]
+        "Storefront landing with the hero, a three-bottle catalogue, the feature row, carousel and FAQ.",
+        "Product detail page.",
+        "Store management screen with the add-store form and the existing-stores table."
+      ],
+      "limits": "Course exercise built in Laravel. The site carries a third-party credit line in its footer, so this entry documents the interface and the admin workflows, not the brand."
     }
   }
 ];
