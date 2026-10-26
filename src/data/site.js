@@ -155,8 +155,44 @@ export const copy = {
       "letsTalk": "Let's Talk",
       "skills": "Skills & Experience",
       "experience": "Currently completing a Bachelor's degree in Information Systems at the National Institute of Technology Bandung. I combine user research, interface design, and frontend development with experience across agency, freelance, hospitality, and academic projects.",
+      "experienceFacts": [
+        [
+          "Current",
+          "Digitalkultr, websites and brand identity for architecture and F&B clients"
+        ],
+        [
+          "2024",
+          "WaitWhatWeb, UI/UX for ten client brands in three months"
+        ],
+        [
+          "Earlier",
+          "The Union Group and The Ritz-Carlton Jakarta"
+        ],
+        [
+          "Studying",
+          "Information Systems, ITENAS Bandung, expected Oct 2026"
+        ]
+      ],
       "research": "Research & Publications",
       "researchIntro": "Evidence-led UX research on social commerce in Indonesia, combining validated measurement with qualitative insight.",
+      "researchFacts": [
+        [
+          "Institution",
+          "Information Systems, ITENAS Bandung"
+        ],
+        [
+          "Methods",
+          "PLS-SEM in SmartPLS 4, Framework Method"
+        ],
+        [
+          "Output",
+          "JISICS 1(4) accepted Sep 2026, JISEBI prepared"
+        ],
+        [
+          "Supervisors",
+          "Sofia Umaroh, Asep Rizal Nurjaman"
+        ]
+      ],
       "studyTitle": "TikTok Shop — Emotional Design Study",
       "studyBody": "A mixed-methods study of 193 active users and 5 interviews. The 13-dimension UX-Tips instrument showed acceptable convergent validity, while hedonic UX scored slightly above pragmatic UX in the item-weighted comparison.",
       "stats": {
@@ -259,8 +295,44 @@ export const copy = {
       "letsTalk": "Mari Berdiskusi",
       "skills": "Keahlian & Pengalaman",
       "experience": "Sedang menyelesaikan gelar Sarjana Sistem Informasi di Institut Teknologi Nasional Bandung. Saya memadukan riset pengguna, desain antarmuka, dan pengembangan frontend melalui pengalaman agensi, freelance, hospitality, dan proyek akademik.",
+      "experienceFacts": [
+        [
+          "Saat ini",
+          "Digitalkultr, website dan identitas merek untuk klien arsitektur dan F&B"
+        ],
+        [
+          "2024",
+          "WaitWhatWeb, UI/UX untuk sepuluh merek klien dalam tiga bulan"
+        ],
+        [
+          "Sebelumnya",
+          "The Union Group dan The Ritz-Carlton Jakarta"
+        ],
+        [
+          "Kuliah",
+          "Sistem Informasi, ITENAS Bandung, diperkirakan Okt 2026"
+        ]
+      ],
       "research": "Riset & Publikasi",
       "researchIntro": "Riset UX berbasis bukti tentang social commerce di Indonesia yang menggabungkan pengukuran tervalidasi dengan wawasan kualitatif.",
+      "researchFacts": [
+        [
+          "Institusi",
+          "Sistem Informasi, ITENAS Bandung"
+        ],
+        [
+          "Metode",
+          "PLS-SEM di SmartPLS 4, Framework Method"
+        ],
+        [
+          "Luaran",
+          "JISICS 1(4) diterima Sep 2026, JISEBI disiapkan"
+        ],
+        [
+          "Pembimbing",
+          "Sofia Umaroh, Asep Rizal Nurjaman"
+        ]
+      ],
       "studyTitle": "TikTok Shop — Studi Emotional Design",
       "studyBody": "Studi mixed-methods terhadap 193 pengguna aktif dan 5 wawancara. Instrumen UX-Tips dengan 13 dimensi menunjukkan validitas konvergen yang memadai, sementara UX hedonic sedikit lebih tinggi daripada UX pragmatic pada perbandingan berbobot item.",
       "stats": {

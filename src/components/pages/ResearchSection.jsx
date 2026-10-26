@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import FactRail from "@/components/FactRail";
 import PublicationsList from "@/components/pages/PublicationsList";
 import StudyBlock from "@/components/StudyBlock";
 import { uxDimensions } from "@/data/site";
@@ -29,9 +30,12 @@ export default function ResearchSection() {
       <div className='mx-auto max-w-shell px-5 py-20 md:px-10 md:py-28'>
         <div className='grid gap-x-16 gap-y-8 lg:grid-cols-12'>
           <h2 className='text-3xl md:text-4xl lg:col-span-4'>{text.home.research}</h2>
-          <p className='measure text-lg text-secondary lg:col-span-8'>
+          <p className='measure text-lg text-secondary lg:col-span-8 xl:col-span-4'>
             {text.home.researchIntro}
           </p>
+          <div className='lg:col-span-12 xl:col-span-4'>
+            <FactRail rows={text.home.researchFacts} />
+          </div>
         </div>
 
         <div className='mt-16 border-t-2 border-primary pt-10'>

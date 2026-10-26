@@ -12,6 +12,7 @@ import {
   FaShoppingCart,
 } from "react-icons/fa";
 import { useLanguage } from "@/components/LanguageProvider";
+import FactRail from "@/components/FactRail";
 import ResearchSection from "@/components/pages/ResearchSection";
 import { certifications } from "@/data/site";
 
@@ -70,7 +71,12 @@ export default function HomeContent() {
         <div className='mx-auto max-w-shell px-5 py-20 md:px-10 md:py-28'>
           <div className='grid gap-x-16 gap-y-8 lg:grid-cols-12'>
             <h2 className='text-3xl md:text-4xl lg:col-span-4'>{text.home.skills}</h2>
-            <p className='measure text-lg text-secondary lg:col-span-8'>{text.home.experience}</p>
+            <p className='measure text-lg text-secondary lg:col-span-8 xl:col-span-4'>
+              {text.home.experience}
+            </p>
+            <div className='lg:col-span-12 xl:col-span-4'>
+              <FactRail rows={text.home.experienceFacts} />
+            </div>
           </div>
 
           <ul className='mt-16 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:grid-cols-4'>
