@@ -584,25 +584,96 @@ export const projects = [
     "kicker": "Course & exploration project",
     "year": "2023",
     "role": "UI/UX Designer & mobile front-end developer",
-    "image": null,
+    "image": "/projects/myrt.jpg",
     "tags": [
       "Flutter",
       "Figma",
       "Mobile UX"
     ],
-    "summary": "Mobile app concept for neighbourhood-level population data, residents, guests, schedules, and reports.",
-    "details": "Designed the user experience and implemented the mobile front end in Flutter for a neighbourhood administration concept covering residents, guests, schedules and reports for the local head.",
-    "metrics": [],
+    "summary": "Neighbourhood population app with two roles: the RT head files reports and sees the resident data, the resident files their own.",
+    "details": "MyRT replaces the paper book a neighbourhood head keeps. The app opens on a greeting that offers Data, List Tamu and Jadwal, and the report form asks for a title, a type and the body before Kirim Laporan. Eleven screens cover the two sides of it, the RT head and the resident, with login, register, email verification and password recovery sitting in front of both. The interface was designed in Figma with its own type and colour sheet, then implemented in Flutter.",
+    "metrics": [
+      {
+        "label": "Screens",
+        "value": "11"
+      },
+      {
+        "label": "Roles",
+        "value": "2"
+      },
+      {
+        "label": "Sections",
+        "value": "Data · Tamu · Jadwal"
+      }
+    ],
     "case": {
-      "context": "Population data at the neighbourhood (RT) level is usually kept on paper, which makes reporting slow for the local head.",
+      "context": "Population data at the neighbourhood level is usually kept in a paper book, which makes reporting slow for the RT head and leaves residents with no way to file anything themselves.",
       "approach": [
-        "Designed the flows for residents, guests, schedules and reports.",
-        "Implemented the mobile front end in Flutter."
+        "Split the app by role rather than by feature, so the RT head and the resident get their own home, report and data screens instead of one screen with hidden controls.",
+        "Kept the resident home to three entries (Data, List Tamu, Jadwal) so the app opens on the three things a neighbourhood actually asks about.",
+        "Reduced the report form to a title, a type and a body, with a single Kirim Laporan action.",
+        "Put login, register, email verification and password recovery in front of both roles.",
+        "Designed the type and colour sheet in Figma before implementing the front end in Flutter."
       ],
       "deliverables": [
-        "Mobile app UI.",
+        "Eleven screens across the RT head and resident roles.",
+        "Report flow with title, type and body.",
+        "Data, guest list and schedule sections.",
+        "Login, register, verify email and forgot password.",
         "Flutter front end."
-      ]
+      ],
+      "limits": "Course and exploration project. The resident data in the screens is placeholder content, and the app was built as a student exercise rather than deployed for a real neighbourhood."
+    }
+  },
+  {
+    "slug": "woodcraft",
+    "title": "WoodCraft — House of Wood",
+    "kicker": "UAS RPL · Software engineering final exam · 2023",
+    "year": "2023",
+    "role": "Brand and interface design, team of four",
+    "image": "/projects/woodcraft.jpg",
+    "tags": [
+      "Branding",
+      "Web Design",
+      "PHP"
+    ],
+    "summary": "Brand and storefront for a fictional Bandung furniture house: a logo built from wood grain, a brown identity, and a site that sells default or custom pieces.",
+    "details": "WoodCraft was the final exam for a software engineering course, built by a group of four. The work runs from the identity to the site: a glyph made of wood grain forming a house, a brown palette argued in the guidelines, typography rules and logo lockups, then the storefront, a home page with testimonials, a products index of finished rooms, about, contact, login, register and a cart. The front end is HTML, CSS and JavaScript, the back end PHP with MySQL, versioned in Git.",
+    "metrics": [
+      {
+        "label": "Screens",
+        "value": "8"
+      },
+      {
+        "label": "Guideline pages",
+        "value": "11"
+      },
+      {
+        "label": "Team",
+        "value": "4"
+      },
+      {
+        "label": "Stack",
+        "value": "JS · PHP · MySQL"
+      }
+    ],
+    "case": {
+      "context": "The course's final exam asked for a working web product with the brand work that goes with it. The team picked a fictional Bandung furniture company selling Indonesian wood, where a customer can order a default model or ask for one built to their own specification.",
+      "approach": [
+        "Wrote the brand guidelines first, logo, glyph, colour styles, typography and lockups, so the site had rules to follow instead of a mood.",
+        "Built the glyph from wood grain forming the shape of a house, and set the identity in browns arguing warmth and stability rather than a luxury veneer.",
+        "Laid the storefront out in the order a buyer moves: home with testimonials, our works, products, a chosen piece, then the cart and the account screens.",
+        "Held the contact form, login and register inside the same header and footer so the site reads as one system rather than pages stitched together.",
+        "Built it on HTML, CSS and JavaScript with a PHP back end and MySQL, versioned in Git across four people."
+      ],
+      "deliverables": [
+        "Brand guidelines: glyph, logo, colour styles, typography and lockups.",
+        "Home with testimonials, workshop and forest sections.",
+        "Products index, product detail and cart.",
+        "About, contact, login and register.",
+        "Front end in HTML, CSS and JavaScript, back end in PHP with a MySQL database."
+      ],
+      "limits": "Final-exam group project for a software engineering course, built by four people. The company is fictional: the address, phone number, cart total and testimonials in the screens are placeholders."
     }
   },
   {
