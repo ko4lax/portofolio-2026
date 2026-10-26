@@ -5,7 +5,7 @@ export const projects = [
     "kicker": "Thesis · National Institute of Technology Bandung · 2026",
     "year": "2026",
     "role": "UX Researcher & first author",
-    "image": "/projects/tiktok-shop.jpg",
+    "image": "/projects/tiktok-shop-cover.jpg",
     "tags": [
       "UX Research",
       "PLS-SEM",
@@ -322,7 +322,7 @@ export const projects = [
     "kicker": "WaitWhatWeb · Jul–Sep 2024",
     "year": "2024",
     "role": "UI/UX Designer",
-    "image": "/projects/me-lia.jpg",
+    "image": "/projects/me-lia-cover.jpg",
     "tags": [
       "User-Centred Design",
       "E-commerce",
@@ -370,7 +370,7 @@ export const projects = [
     "kicker": "Capstone · PT Digitalkultur Indonesia · Jun 2025",
     "year": "2025",
     "role": "Front-end Developer",
-    "image": "/projects/warehouse.jpg",
+    "image": "/projects/warehouse-cover.jpg",
     "tags": [
       "Next.js",
       "Design System",
@@ -422,7 +422,7 @@ export const projects = [
     "kicker": "Agency · 2024",
     "year": "2024",
     "role": "UI/UX Designer & Front-end Developer",
-    "image": "/projects/waitwhatweb.jpg",
+    "image": "/projects/waitwhatweb-cover.jpg",
     "tags": [
       "Branding",
       "E-commerce",
@@ -547,7 +547,7 @@ export const projects = [
     "kicker": "Freelance · Apr 2025",
     "year": "2025",
     "role": "Web Designer & Developer",
-    "image": null,
+    "image": "/projects/siliwangi-signal.jpg",
     "tags": [
       "Web Design",
       "Company Profile",
@@ -584,7 +584,7 @@ export const projects = [
     "kicker": "Course & exploration project",
     "year": "2023",
     "role": "UI/UX Designer & mobile front-end developer",
-    "image": "/projects/myrt.jpg",
+    "image": "/projects/myrt-cover.jpg",
     "tags": [
       "Flutter",
       "Figma",
@@ -682,7 +682,7 @@ export const projects = [
     "kicker": "Course & exploration project",
     "year": "2023",
     "role": "UI/UX Designer · team project",
-    "image": "/projects/bni-redesign.jpg",
+    "image": "/projects/bni-redesign-cover.jpg",
     "tags": [
       "Figma",
       "Gestalt",
