@@ -127,47 +127,48 @@ export const projects = [
   {
     "slug": "lost-breakage",
     "title": "Lost & Breakage Management System",
-    "kicker": "Self-initiated concept · F&B operations · 2026",
+    "kicker": "Roma Osteria and Bar · Operations and product design · 2026",
     "year": "2026",
-    "role": "Product Designer: research, UX, UI, design system",
+    "role": "Lost & Breakage PIC: operations, research, UX and UI",
     "image": "/projects/lost.jpg",
     "tags": [
-      "UX Research",
+      "Operations",
       "Product Design",
       "Design System"
     ],
-    "summary": "A mobile report flow and a desktop review queue that turn paper breakage logs into accountable loss data for multi-outlet F&B teams.",
-    "details": "Restaurants and cafes lose an estimated 2 to 4 percent of revenue to breakage, spoilage and unrecorded comps, and most of it never gets written down. I designed two surfaces: a report flow staff can finish in under 30 seconds while the guest is still at the table, and a desktop queue where a manager triages, prices and resolves each incident. Six interviews and one Friday dinner service showed the barrier was friction at the moment of reporting, not awareness of the loss.",
+    "summary": "I ran lost and breakage at Roma Osteria and Bar, then designed the system that deletes the retype: one record written at the pass, read by the manager review and the weekly cost view.",
+    "details": "The job was two manual steps. Staff wrote incidents on a paper sheet at the pass when they remembered, and I retyped that sheet into Excel days later. Eleven rows were written in the week I audited, and six survived the retype. The loss was never unknown, it was recorded twice and reliable zero times. The design removes the second step: staff log in under thirty seconds where the break happens, and the manager review and the weekly cost view read from that same record.",
     "metrics": [
       {
-        "label": "Stakeholder interviews",
+        "label": "Pass sheet rows",
+        "value": "11"
+      },
+      {
+        "label": "Survived the retype",
         "value": "6"
       },
       {
-        "label": "Shift observation",
-        "value": "4 hours"
+        "label": "Manual steps",
+        "value": "2 → 1"
       },
       {
-        "label": "Report time, modelled",
-        "value": "4 min → 28 s"
-      },
-      {
-        "label": "Loss categories",
-        "value": "6"
+        "label": "Entry point",
+        "value": "Close → pass"
       }
     ],
     "case": {
-      "context": "An 80-seat outlet loses stock four ways: breakage, spoilage, staff error and unrecorded comps. Three of the four are logged, if at all, on a paper shift sheet clipped to the pass and filled at close from memory. Industry benchmarks put the loss at 2 to 4 percent of revenue. None of the six interviewed outlets could name the top three items lost last month, and the delta surfaced three weeks later at monthly stock count.",
+      "context": "Roma Osteria and Bar runs a full service floor and a bar. An item leaves inventory four ways: breakage, spoilage, staff error and comps that never got charged. One paper sheet covered all four, hanging at the pass and filled in when someone remembered. At close I keyed that sheet into a workbook, and the workbook produced the monthly number. Staff forgot to write, and I sometimes never keyed in what had been written, so the workbook was always smaller than the week and nothing on the page showed which entries had gone.",
       "approach": [
-        "Interviewed six stakeholders separately (two outlet managers, two shift supervisors, one server, one kitchen lead) so manager-led answers would not shape the rest.",
-        "Shadowed four hours of a Friday dinner service at one 80-seat outlet, watching the pass and the closing count. The clipboard was touched eleven times and nobody opened the back-office POS report.",
-        "Audited three existing tools: a generic inventory app, a POS breakage add-on and the spreadsheet still in use at two outlets.",
-        "Grouped 47 observations into four clusters by the moment in the shift where the loss happens, then wrote the five insights that changed the brief.",
+        "Operated the log as the lost and breakage PIC: chased missing entries, retyped the paper sheet and published the monthly number.",
+        "Ran staff conversations informally over months with servers, bar and kitchen staff, no scheduling and no survey, which is why people said plainly that they forget.",
+        "Ran a double-entry audit: consecutive paper sheets compared against the workbook they became, counting how many rows a week started with and how many survived the retyping.",
+        "Grouped 20 notes by the four stages where an incident stops being a record (at the pass, at close, at the retype, after the report) rather than by department.",
         "Designed three flows with a happy path and an edge case each: mobile report, desktop review, desktop analytics.",
-        "Built a design system of 15 tokens and four components, with empty, loading, error and success designed as first-class screens.",
-        "Prototyped the loop report, review, resolve, analytics, including a 120 ms cause-chip interaction tuned to a user who is standing up."
+        "Built a design system of 15 tokens and four components, with empty, loading, error and success treated as first-class screens.",
+        "Prototyped the loop report, review, resolve, analytics, with the cause chip tuned to someone standing up mid-service."
       ],
       "deliverables": [
+        "One record per incident, so the manager review and the weekly rollup read what staff entered and nothing is retyped.",
         "Mobile report flow in three screens (category, detail, confirmation): four taps, and the item name is the only keyboard moment.",
         "Desktop review queue with an incident detail view that keeps the decision panel next to the evidence.",
         "Analytics with cost trend, ranked items, cost by cause and resolution stats, plus CSV export for the accountant.",
@@ -176,11 +177,11 @@ export const projects = [
         "Five-screen clickable prototype covering report, review, resolution and the updated week total."
       ],
       "findings": [
-        "Every participant could name the three items lost most often. None could put a number on them, so detection was never the problem.",
-        "Staff avoided writing their name because they assumed the cost would come out of their pay. The field that made the data useful was the field that killed the entry.",
-        "Half the loss had a cause the log never captured: a walk-in that ran warm on Fridays, deliveries that arrived short.",
-        "Managers wanted a Monday conversation with one person about one item, not a chart review.",
-        "Paper survived because it lived on the pass. Any tool on a back-office PC lost to it by default."
+        "The record broke at the pass, not in the report. Everyone knew what broke and roughly how much, and nobody stopped service to write it down.",
+        "Forgetting was rational. Nothing during service prompts a report, and at close the sheet competes with cleaning, cash-up and going home.",
+        "The retype was where rows actually disappeared: eleven written in the week, six in the workbook, with nothing on the page flagging the gap.",
+        "A row without a reporter, a shift and a cause is a number. It can be reported, it cannot be acted on as training, a supplier claim or maintenance.",
+        "Everyone could name the top three items, glasses, plates and milk, in seconds. Nobody could give volume, shift or cause."
       ],
       "implications": [
         "Remove every field the system can stamp: shift, outlet and reporter come from the session.",
@@ -189,8 +190,8 @@ export const projects = [
         "Treat the taxonomy as the product: six categories, each mapping to a different operational fix.",
         "Design empty, loading and error states with the same care as the happy path. A loss tool that looks broken is a tool nobody uses."
       ],
-      "limits": "Self-initiated concept, not a shipped product. The improvement figures are modelled pilot targets, not measured outcomes: time to report 4 minutes to 28 seconds, incident capture 61 to 94 percent, resolution 3.2 days to 1.1 days, cost recovered from none to IDR 1.2M per outlet per month. The baseline comes from observation and interviews; the target column is a goal. No POS integration, no inventory reconciliation and no production data.",
-      "team": "Solo project. Research, flows, wireframes, interface, design system and prototype, built in Figma with Figma MCP; Maze was planned for the pilot test."
+      "limits": "The system is designed, not shipped. The figures on the left are first-hand: I did this job, and the eleven-to-six row drop comes from the paper sheets and the workbook they became. Everything else is a goal a pilot has to prove, not a measured result: entry in under 30 seconds at the pass, capture of 90 percent or more against a weekly audit of twenty incidents, resolution under one day with a named reviewer, and IDR 1.2M a month identified and acted on. No POS integration, no inventory reconciliation and no production data.",
+      "team": "Solo, in both roles. I owned the process at Roma Osteria and Bar and designed its replacement; the case study was built in Figma with Figma MCP. Colleague quotes are unattributed by role and cleaned for readability."
     }
   },
   {
