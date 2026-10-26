@@ -9,7 +9,11 @@ import { projects } from "@/data/projects";
 export default function ProjectsContent() {
   const { language } = useLanguage();
   const [selected, setSelected] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   const closeModal = useCallback(() => setSelected(null), []);
+
+  // Three rows of three by default; the rest are one click away.
+  const visible = showAll ? projects : projects.slice(0, 9);
 
   const labels =
     language === "id"
@@ -17,6 +21,8 @@ export default function ProjectsContent() {
           title: "Proyek Pilihan",
           intro:
             "Riset UX, desain antarmuka, dan frontend dengan detail di balik setiap karya.",
+          showAll: `Tampilkan semua ${projects.length} proyek`,
+          showLess: "Tampilkan lebih sedikit",
           close: "Tutup",
           role: "Peran",
           year: "Tahun",
@@ -34,6 +40,8 @@ export default function ProjectsContent() {
           title: "Selected Work",
           intro:
             "UX research, interface design, and frontend builds with the evidence behind each one.",
+          showAll: `Show all ${projects.length} projects`,
+          showLess: "Show fewer",
           close: "Close",
           role: "Role",
           year: "Year",
@@ -58,8 +66,8 @@ export default function ProjectsContent() {
           <p className='measure mt-8 text-lg text-secondary'>{labels.intro}</p>
         </div>
 
-        <div className='mt-20'>
-          {projects.map((project) => (
+        <div className='mt-16 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3'>
+          {visible.map((project) => (
             <ProjectCard
               key={project.slug}
               project={project}
@@ -68,6 +76,17 @@ export default function ProjectsContent() {
             />
           ))}
         </div>
+
+        {projects.length > 9 && (
+          <div className='mt-12 flex'>
+            <button
+              type='button'
+              onClick={() => setShowAll((open) => !open)}
+              className='btn-secondary'>
+              {showAll ? labels.showLess : labels.showAll}
+            </button>
+          </div>
+        )}
       </div>
       {selected && <ProjectModal project={selected} labels={labels} onClose={closeModal} />}
     </section>
