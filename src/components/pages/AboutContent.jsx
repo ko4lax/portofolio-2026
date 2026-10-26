@@ -11,6 +11,18 @@ const about = {
     craft:
       "I take products from research, interviews, personas, journey maps, wireframes, and Figma prototypes through to responsive frontends in HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, and Laravel.",
     experience: "Experience",
+    expOrg: {
+      digitalkultr: "Digitalkultr",
+      waitwhat: "WaitWhatWeb",
+      research: "Research",
+      hospitality: "Hospitality",
+    },
+    expTags: {
+      digitalkultr: ["Websites", "Brand identity"],
+      waitwhat: ["UI/UX", "E-commerce"],
+      research: ["PLS-SEM", "Mixed methods"],
+      hospitality: ["Service", "Brand discipline"],
+    },
     digitalkultr:
       "At Digitalkultr, I design websites and brand identities for architecture and food-and-beverage clients. Faza Architect included a filterable portfolio gallery, project detail pages, and an About page; Bellrock Artisan Coffee included a brand identity, landing pages, and an online storefront.",
     waitwhat:
@@ -27,6 +39,18 @@ const about = {
     craft:
       "Saya mengerjakan produk dari riset, wawancara, persona, customer journey, wireframe, dan prototipe Figma hingga frontend responsif dengan HTML, CSS, JavaScript, React, Next.js, WordPress, Shopify, dan Laravel.",
     experience: "Pengalaman",
+    expOrg: {
+      digitalkultr: "Digitalkultr",
+      waitwhat: "WaitWhatWeb",
+      research: "Riset",
+      hospitality: "Hospitality",
+    },
+    expTags: {
+      digitalkultr: ["Website", "Identitas merek"],
+      waitwhat: ["UI/UX", "E-commerce"],
+      research: ["PLS-SEM", "Mixed methods"],
+      hospitality: ["Pelayanan", "Disiplin merek"],
+    },
     digitalkultr:
       "Di Digitalkultr, saya merancang website dan identitas brand untuk klien arsitektur serta food-and-beverage. Faza Architect mencakup galeri portfolio yang dapat difilter, halaman detail proyek, dan halaman About; Bellrock Artisan Coffee mencakup identitas brand, landing page, dan storefront online.",
     waitwhat:
@@ -81,10 +105,26 @@ export default function AboutContent() {
           <div className='mt-24'>
             <h2 className='text-3xl md:text-4xl'>{text.experience}</h2>
             <div className='mt-12 border-t border-border'>
-              <p className='measure border-b border-border py-8 text-lg'>{text.digitalkultr}</p>
-              <p className='measure border-b border-border py-8 text-lg'>{text.waitwhat}</p>
-              <p className='measure border-b border-border py-8 text-lg'>{text.research}</p>
-              <p className='measure border-b border-border py-8 text-lg'>{text.hospitality}</p>
+              {[
+                ["digitalkultr", text.digitalkultr],
+                ["waitwhat", text.waitwhat],
+                ["research", text.research],
+                ["hospitality", text.hospitality],
+              ].map(([key, body]) => (
+                <div
+                  key={key}
+                  className='grid gap-x-12 gap-y-4 border-b border-border py-8 lg:grid-cols-12'>
+                  <p className='mono uppercase text-secondary lg:col-span-3'>{text.expOrg[key]}</p>
+                  <p className='text-lg lg:col-span-6'>{body}</p>
+                  <ul className='flex flex-wrap gap-2 self-start lg:col-span-3'>
+                    {text.expTags[key].map((tag) => (
+                      <li key={tag} className='tag'>
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>

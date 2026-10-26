@@ -81,8 +81,9 @@ export default function ResearchSection() {
             ))}
           </div>
 
-          <div className='mt-14 max-w-3xl'>
-            {uxScores.map((score) => (
+          <div className='mt-14'>
+            <div className='max-w-3xl'>
+              {uxScores.map((score) => (
               <div
                 key={score.label}
                 className='grid grid-cols-[6.5rem_1fr_3.5rem] items-center gap-4 border-b border-border py-5'>
@@ -108,7 +109,8 @@ export default function ResearchSection() {
                 </span>
                 <span className='mono text-right tabular-nums text-primary'>{score.value}</span>
               </div>
-            ))}
+              ))}
+            </div>
             <dl className='mt-16 space-y-8'>
               <StudyBlock label={text.home.touchpointsTitle}>
                 <ul className='border-t border-border'>
@@ -152,7 +154,7 @@ export default function ResearchSection() {
               </StudyBlock>
 
               <StudyBlock label={text.home.findingsTitle}>
-                <ul className='space-y-3'>
+                <ul className='grid gap-4 lg:grid-cols-2 lg:gap-x-12'>
                   {text.home.findings.map((finding) => (
                     <li key={finding} className='relative pl-6 text-secondary leading-6'>
                       <span
@@ -166,7 +168,7 @@ export default function ResearchSection() {
               </StudyBlock>
 
               <StudyBlock label={text.home.rigourTitle}>
-                <ul className='space-y-3'>
+                <ul className='grid gap-4 lg:grid-cols-2 lg:gap-x-12'>
                   {text.home.rigour.map((item) => (
                     <li key={item} className='measure text-secondary leading-6'>
                       {item}
@@ -176,7 +178,7 @@ export default function ResearchSection() {
               </StudyBlock>
 
               <StudyBlock label={text.home.implicationsTitle}>
-                <ul className='space-y-3'>
+                <ul className='grid gap-4 lg:grid-cols-2 lg:gap-x-12'>
                   {text.home.implications.map((item) => (
                     <li key={item} className='relative pl-6 text-secondary leading-6'>
                       <span
