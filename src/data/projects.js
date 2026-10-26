@@ -260,6 +260,63 @@ export const projects = [
     }
   },
   {
+    "slug": "event-management",
+    "title": "Event Management System for DPMPTSP West Java",
+    "kicker": "DPMPTSP West Java Province · Web design · 2023",
+    "year": "2023",
+    "role": "UI/UX Designer",
+    "image": "/projects/event-management.jpg",
+    "tags": [
+      "Web Design",
+      "Prototype",
+      "Forms"
+    ],
+    "summary": "Public site design for the provincial investment agency's events: agenda by session type, event listing, registration and one-on-one meeting requests.",
+    "details": "The prototype covers the public side of an event management system: a homepage that leads with the day's agenda and the upcoming events, an event listing and detail page, the registration form, and login and register screens. The form collects what an investment agency actually filters delegates on, country, investment sector, company, position and purpose of visit, along with the participation type. Four directions were explored in the file, the fourth retired, with a component reference page holding the navbar, sticky navbar, footer and cards.",
+    "metrics": [
+      {
+        "label": "Screens",
+        "value": "6"
+      },
+      {
+        "label": "Design iterations",
+        "value": "4"
+      },
+      {
+        "label": "Registration fields",
+        "value": "10"
+      },
+      {
+        "label": "Session types",
+        "value": "8"
+      }
+    ],
+    "case": {
+      "context": "DPMPTSP West Java Province runs multi-day investment events with an agenda split across halls, one-on-one meetings, project presentations and an exhibition floor. The public site has to answer three questions for a delegate: what is on, how do I register, and who do I meet. The prototype designs that public surface.",
+      "approach": [
+        "Designed the public site as one reading path: homepage, event listing, event detail, registration, about, login.",
+        "Built the agenda around session type rather than room, with eight categories (opening, industry, networking, one-on-one, ceremony, presentations, lunch, meetings), each carrying a time window and a hall.",
+        "Designed the registration form around the fields the agency filters on: name, email, phone, address, position, company, country, investment sector, purpose of visit and participation type.",
+        "Added a detailed schedule view with search and category filters across projects and organisations, so a delegate can find the counterpart, not only the slot.",
+        "Explored four directions in one file and retired the fourth, keeping it visible for reference.",
+        "Kept a component reference page with navbar, sticky navbar, footer, card, image and container blocks."
+      ],
+      "deliverables": [
+        "Homepage with schedule overview, upcoming events, a four-step how it works, the registration form and the detailed schedule.",
+        "Event listing and event detail screens.",
+        "About, login and register screens.",
+        "Component reference: navbar, sticky navbar, footer, cards, image and container blocks.",
+        "Four design iterations in one file, with the discontinued direction left in place."
+      ],
+      "implications": [
+        "Filter the agenda by what a delegate is doing, not by which room they are in.",
+        "Ask for country and investment sector at registration, because that is what the agency matches meetings on.",
+        "Keep the schedule searchable by project and organisation so the list answers who to meet, not just when."
+      ],
+      "limits": "Design prototype only. The file holds screens, a component reference and four iterations; there is no case-study narrative, no research record and no measured outcome. Event names, dates, session times and attendee figures in the mock are sample content, not live data."
+    }
+  },
+  {
     "slug": "me-lia",
     "title": "Me+Lia — Storefront Redesign",
     "kicker": "WaitWhatWeb · Jul–Sep 2024",
