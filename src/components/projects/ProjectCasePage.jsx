@@ -67,6 +67,29 @@ export default function ProjectCasePage({ project }) {
           ))}
         </div>
 
+        {project.gallery?.length ? (
+          <section id='artefacts' aria-labelledby='artefacts-title' className='border-b border-border py-10 md:py-14'>
+            <div className='flex flex-wrap items-baseline justify-between gap-3'>
+              <h2 id='artefacts-title' className='text-3xl font-medium leading-tight tracking-[-0.03em]'>Selected artefacts</h2>
+              <p className='mono text-secondary'>Figma export</p>
+            </div>
+            <p className='measure mt-3 text-sm leading-7 text-secondary'>Each figure is exported from the original design file, not redrawn for this page.</p>
+            <div className='mt-8 grid gap-8 md:grid-cols-2 md:gap-10'>
+              {project.gallery.map((item) => (
+                <figure key={item.src} className='flex flex-col'>
+                  <div className='frame'>
+                    <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes='(max-width: 768px) 100vw, 50vw' className='h-auto w-full object-contain' />
+                  </div>
+                  <figcaption className='mt-3 flex gap-3 text-sm leading-6 text-secondary'>
+                    <span aria-hidden='true' className='mono shrink-0'>↳</span>
+                    <span>{item.caption}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <footer className='mt-12 flex flex-wrap items-center justify-between gap-6 border-t-2 border-primary pt-8'>
           <CaseStudyLinks placement='header' />
           <CaseStudyLinks placement='footer' />

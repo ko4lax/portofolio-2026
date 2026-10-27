@@ -68,6 +68,12 @@ export const projects = [
     "year": "2026",
     "role": "Product Designer, solo",
     "image": "/projects/kerjaku.jpg",
+    "gallery": [
+      {"src": "/projects/kerjaku/research.jpg", "alt": "KerjaKu research board: methods and the four patterns that set the scope.", "caption": "Research synthesis: methods and the four recurring patterns.", "width": 1440, "height": 1210},
+      {"src": "/projects/kerjaku/user-flow.jpg", "alt": "KerjaKu user flow diagram across the application tracking screens.", "caption": "User flow before any interface detail.", "width": 1440, "height": 584},
+      {"src": "/projects/kerjaku/final-screens.jpg", "alt": "KerjaKu final mobile screens shown together.", "caption": "Final screens, the ones that went into testing.", "width": 1440, "height": 1142},
+      {"src": "/projects/kerjaku/usability-test.jpg", "alt": "KerjaKu usability test board reporting eight participants, a SUS score of 82 after three revisions and the interface changes made.", "caption": "Usability testing: eight participants, five tasks and the three revisions that followed.", "width": 1440, "height": 852}
+    ],
     "tags": [
       "UX Research",
       "Mobile UX",
@@ -134,6 +140,12 @@ export const projects = [
     "year": "2026",
     "role": "Lost & Breakage PIC: operations, research, UX and UI",
     "image": "/projects/lost.jpg",
+    "gallery": [
+      {"src": "/projects/lost-breakage/research-affinity.jpg", "alt": "Affinity map clustering staff notes from the pass, at close, at the retype and after the report.", "caption": "Research synthesis: notes grouped by the four stages where an incident stops being a record.", "width": 1440, "height": 575},
+      {"src": "/projects/lost-breakage/personas.jpg", "alt": "Persona board for the lost and breakage PIC and service staff, with goals, frustrations and current workflow.", "caption": "Two personas in one loop: the PIC who owns the number, and the staff who own the moment.", "width": 1440, "height": 1529},
+      {"src": "/projects/lost-breakage/user-flow.jpg", "alt": "Four-step mobile reporting flow: entry, category, detail, confirm.", "caption": "Report flow: four taps from any screen, with the item-not-in-catalogue edge case.", "width": 1440, "height": 436},
+      {"src": "/projects/lost-breakage/final-ui.jpg", "alt": "Three mobile screens of the breakage report flow: category choice, detail entry and confirmation.", "caption": "Final UI: the three screens the report runs through.", "width": 1440, "height": 1080}
+    ],
     "tags": [
       "Operations",
       "Product Design",
@@ -205,6 +217,11 @@ export const projects = [
     "year": "2026",
     "role": "Product Designer",
     "image": "/projects/metric.jpg",
+    "gallery": [
+      {"src": "/projects/metric-saas/overview.jpg", "alt": "Metric dashboard overview with four KPI cards, an MRR trend chart and a customer table, labelled as sample data.", "caption": "Overview: revenue, customers and retention in one weekly review. Concept data, no live integration.", "width": 1440, "height": 1080},
+      {"src": "/projects/metric-saas/analytics.jpg", "alt": "Revenue analytics screen breaking the September MRR change into new, expansion, contraction and churn.", "caption": "Analytics detail: the September MRR movement explained by its parts.", "width": 1440, "height": 1140},
+      {"src": "/projects/metric-saas/design-system.jpg", "alt": "Metric design system board with colour tokens, typography specimens and layout guidance.", "caption": "Design system foundations: colour tokens, type roles and layout rhythm.", "width": 1440, "height": 680}
+    ],
     "tags": [
       "Dashboard",
       "Design System",

@@ -28,6 +28,16 @@ Approved dimensions: spec compliance, source-copy integrity, bounded reuse/no ne
 
 This extends existing project records; it does not re-audit every historical research method or artifact. Original Event role/year provenance remains unresolved in the previous dataset. Concept/course/research limits and warehouse ownership are retained, not certified anew. Screen-reader output, browser engines other than Chromium, forced-colour/zoom behaviour, dependency security and unused modal runtime were not tested in this extension. The old Me+Lia report separately records its original modal tests before the new all-page requirement.
 
+## Figma artefact galleries (same release)
+
+KerjaKu, Lost & Breakage and Metric now carry a "Selected artefacts" section on their project pages: eleven images exported from the original Figma files with alt text and captions. KerjaKu gets research synthesis, user flow, final screens and the usability test board; Lost & Breakage gets the research affinity map, personas, report flow and final UI; Metric gets the overview, analytics detail and design system foundations.
+
+Export path: Figma MCP `download_assets` on named frames, PNG at 1.5x, resized to 1440 px wide, JPEG quality 82, 935 KB total. Files live under public/projects/<slug>/. No image was redrawn, regenerated or invented, and projects without an accessible file carry no gallery.
+
+Verified: unit test asserts gallery ownership, file existence and non-empty alt/caption; HTTP sweep asserts figure count, alt text, caption and single gallery heading per page, and asserts no gallery on the other thirteen routes; asset checker now resolves 31 references. Build, lint, browser sweep across all sixteen routes at 1440/390 pass with every image decoded, no overflow, and the 1024/bilingual/no-JS checks unaffected. Artefact images are lazy-loaded, so the browser probe scrolls each page before asserting decode. Section screenshot at 1440 inspected: two even columns, readable captions, nothing clipped.
+
+Not judged: whether each board reflects the final historical state of the project, screen-reader output for long alt text, and alternate-engine rendering. Captions describe what the exported frame shows.
+
 ## Publication contract
 
 Current user explicitly requested deployment. Back up reviewed feature branch without pushing master. Deploy a clean tracked Git export with only existing nonsecret Vercel linkage metadata added, not the worktree's untracked QA/notes/notebooks or any credential/environment files. Previous Ready production deployment is https://portofolio-2026-gssi79m3o-dreamvalians-projects.vercel.app; verified through Vercel inspect before deploy. Production is not claimed live by this local report; require all-live-route HTTP sweep and browser checks before the final completion statement. Exact deployed commit, new deployment URL and post-deploy verification belong in the publication handoff.

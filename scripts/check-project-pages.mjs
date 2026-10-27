@@ -26,6 +26,21 @@ for (const project of projects) {
     assert.ok(text.includes(project.details), `${route}: complete details`);
     for (const item of Object.values(project.case).flat()) assert.ok(text.includes(item), `${route}: preserved case content`);
   }
+  if (project.gallery?.length) {
+    const gallerySection = article.match(/<section[^>]*id="artefacts"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(gallerySection, `${route}: artefact section`);
+    const figures = [...gallerySection.matchAll(/<figure\b[\s\S]*?<\/figure>/g)].map((m) => m[0]);
+    assert.equal(figures.length, project.gallery.length, `${route}: artefact count`);
+    for (const [index, figure] of figures.entries()) {
+      const { alt, caption, src } = project.gallery[index];
+      assert.ok(figure.includes(src) || figure.includes(encodeURIComponent(src)), `${route}: ${src}`);
+      assert.ok(figure.includes(`alt="${alt.replace(/"/g, "&quot;")}"`), `${route}: alt text`);
+      assert.ok(figure.includes(caption), `${route}: caption`);
+    }
+    assert.equal(article.match(/<h2[^>]*>Selected artefacts<\/h2>/g)?.length, 1, `${route}: gallery heading`);
+  } else {
+    assert.doesNotMatch(article, /Selected artefacts/, `${route}: no invented gallery`);
+  }
   assert.ok(html.includes(`rel="canonical" href="https://www.nifnux.tech${route}"`), route);
   assert.ok(html.includes(`property="og:url" content="https://www.nifnux.tech${route}"`), route);
   for (const field of ["og:image", "twitter:image"]) {
