@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { useLanguage } from "@/components/LanguageProvider";
 import SocialLinks from "@/components/SocialLinks";
@@ -8,7 +9,8 @@ import { site } from "@/data/site";
 
 const MENU_ID = "mobile-menu";
 
-// Single-page site: the nav moves between in-page sections. These ids match the
+// Homepage anchors and the case-study return links share these section ids.
+// They match the
 // section elements in src/components/pages/*Content.jsx.
 const SECTION_IDS = ["home", "about", "projects", "contact"];
 
@@ -17,12 +19,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const toggleRef = useRef(null);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const homePrefix = isHome ? "" : "/";
+  const currentSection = isHome ? activeSection : pathname.startsWith("/work/") ? "projects" : "";
   const { text, toggleLanguage } = useLanguage();
 
   const navItems = [
-    { name: text.nav.about, href: "#about" },
-    { name: text.nav.projects, href: "#projects" },
-    { name: text.nav.contact, href: "#contact" },
+    { id: "about", name: text.nav.about, href: `${homePrefix}#about` },
+    { id: "projects", name: text.nav.projects, href: `${homePrefix}#projects` },
+    { id: "contact", name: text.nav.contact, href: `${homePrefix}#contact` },
   ];
 
   useEffect(() => {
@@ -30,13 +36,16 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   // Highlight the section currently in view. Plain anchor links already scroll
   // without JavaScript, so this is decoration on top of working behaviour.
   useEffect(() => {
+    setActiveSection("");
+    if (!isHome) return undefined;
     const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
     if (sections.length === 0 || typeof IntersectionObserver === "undefined") return undefined;
 
@@ -52,7 +61,7 @@ export default function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome, pathname]);
 
   // Arriving on /#projects (for example from the old /projects redirect) should
   // land on that section once fonts and images have settled.
@@ -65,7 +74,7 @@ export default function Navbar() {
 
     const timer = window.setTimeout(() => target.scrollIntoView({ block: "start" }), 120);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   // Close the panel after an in-page jump, and let Escape back out of it.
   useEffect(() => {
@@ -90,7 +99,7 @@ export default function Navbar() {
       }`}>
       <div className='mx-auto flex h-16 max-w-shell items-center justify-between px-5 md:h-20 md:px-10'>
         <a
-          href='#home'
+          href={`${homePrefix}#home`}
           onClick={closeMenu}
           aria-label='Hanif Nugraha, back to top'
           className='font-display text-xl font-semibold tracking-[-0.04em] text-primary'>
@@ -104,9 +113,9 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={closeMenu}
-              aria-current={activeSection === item.href.slice(1) ? "location" : undefined}
+              aria-current={currentSection === item.id ? "location" : undefined}
               className={`link-rule mono ${
-                activeSection === item.href.slice(1)
+                currentSection === item.id
                   ? "link-rule-active text-primary"
                   : "text-secondary hover:text-primary"
               }`}>
@@ -193,7 +202,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={closeMenu}
-              aria-current={activeSection === item.href.slice(1) ? "location" : undefined}
+              aria-current={currentSection === item.id ? "location" : undefined}
               className='flex items-baseline justify-between border-b border-border py-4 font-display text-2xl tracking-[-0.03em] text-primary'>
               {item.name}
             </a>

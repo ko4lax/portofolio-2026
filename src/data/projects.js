@@ -318,6 +318,7 @@ export const projects = [
   },
   {
     "slug": "me-lia",
+    "caseStudyHref": "/work/me-lia",
     "title": "Me+Lia — Storefront Redesign",
     "kicker": "WaitWhatWeb · Jul–Sep 2024",
     "year": "2024",

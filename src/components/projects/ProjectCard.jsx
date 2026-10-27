@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 /**
  * One tile in the work grid: cover on top, then the record in the site's mono
- * and display voice. The whole tile is the button, with the content above it
+ * and display voice. The whole tile is the control, with the content above it
  * so the text stays selectable.
  */
 export default function ProjectCard({ project, labels, onOpen }) {
@@ -52,12 +53,20 @@ export default function ProjectCard({ project, labels, onOpen }) {
         </div>
       </div>
 
-      <button
-        type='button'
-        onClick={() => onOpen(project)}
-        aria-label={`${labels.details}: ${project.title}`}
-        className='absolute inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary'
-      />
+      {project.caseStudyHref ? (
+        <Link
+          href={project.caseStudyHref}
+          aria-label={`${labels.details}: ${project.title}`}
+          className='absolute inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary'
+        />
+      ) : (
+        <button
+          type='button'
+          onClick={() => onOpen(project)}
+          aria-label={`${labels.details}: ${project.title}`}
+          className='absolute inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-primary'
+        />
+      )}
     </article>
   );
 }
