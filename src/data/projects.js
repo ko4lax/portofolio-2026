@@ -288,6 +288,9 @@ export const projects = [
     "year": "2023",
     "role": "UI/UX Designer",
     "image": "/projects/event-management.jpg",
+    "gallery": [
+      {"src": "/projects/event-management/event-detail.jpg", "alt": "Event detail view for the Tech Innovation Forum, with the programme, speakers and a register action.", "caption": "Event detail: one event with its programme, speakers and the register action.", "width": 900, "height": 1533}
+    ],
     "tags": [
       "Web Design",
       "Prototype",

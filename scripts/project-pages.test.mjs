@@ -30,7 +30,7 @@ test("case section mapping preserves content and omits undocumented stages", asy
 
 test("Figma artefact galleries are real files with described figures", async () => {
   const featured = projects.filter((project) => project.gallery?.length);
-  assert.deepEqual(featured.map((project) => project.slug).sort(), ["kerjaku", "lost-breakage", "metric-saas"]);
+  assert.deepEqual(featured.map((project) => project.slug).sort(), ["event-management", "kerjaku", "lost-breakage", "metric-saas"]);
   for (const project of featured) {
     for (const figure of project.gallery) {
       assert.equal(figure.src, `/projects/${project.slug}/${figure.src.split("/").pop()}`, project.slug);

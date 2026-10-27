@@ -76,9 +76,9 @@ export default function ProjectCasePage({ project }) {
             <p className='measure mt-3 text-sm leading-7 text-secondary'>Each figure is exported from the original design file, not redrawn for this page.</p>
             <div className='mt-8 grid gap-8 md:grid-cols-2 md:gap-10'>
               {project.gallery.map((item) => (
-                <figure key={item.src} className='flex flex-col'>
+                <figure key={item.src} className={project.gallery.length === 1 ? 'flex flex-col md:col-span-2 md:mx-auto md:max-w-2xl' : 'flex flex-col'}>
                   <div className='frame'>
-                    <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes='(max-width: 768px) 100vw, 50vw' className='h-auto w-full object-contain' />
+                    <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes={project.gallery.length === 1 ? '(max-width: 768px) 100vw, 672px' : '(max-width: 768px) 100vw, 50vw'} className='h-auto w-full object-contain' />
                   </div>
                   <figcaption className='mt-3 flex gap-3 text-sm leading-6 text-secondary'>
                     <span aria-hidden='true' className='mono shrink-0'>↳</span>
