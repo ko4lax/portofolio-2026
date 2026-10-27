@@ -1,9 +1,14 @@
 import { siteUrl } from "@/data/seo";
+import { projects } from "@/data/projects";
 
-// Homepage sections remain anchors; only the dedicated case study has a new URL.
+// Homepage sections stay anchors; documented project destinations are real URLs.
 const routes = [
   { path: "", changeFrequency: "monthly", priority: 1 },
-  { path: "/work/me-lia", changeFrequency: "monthly", priority: 0.7 },
+  ...projects.filter((project) => project.caseStudyHref).map((project) => ({
+    path: project.caseStudyHref,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  })),
 ];
 
 export default function sitemap() {

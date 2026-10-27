@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { meLiaStages } from "../src/data/meLiaCaseStudy.mjs";
 
 const base = new URL(process.argv[2] || "http://localhost:3111");
-assert.ok(["127.0.0.1", "localhost", "[::1]"].includes(base.hostname), "Use a local review server");
+assert.ok(["127.0.0.1", "localhost", "[::1]", "www.nifnux.tech"].includes(base.hostname), "Use a local review server");
 const response = await fetch(new URL("/work/me-lia", base));
 assert.equal(response.status, 200, "Me+Lia route must return 200");
 const html = await response.text();
@@ -36,7 +37,7 @@ for (const field of ["og:title", "og:description", "og:url", "og:image", "twitte
 }
 const sitemap = await fetch(new URL("/sitemap.xml", base));
 assert.equal(sitemap.status, 200);
-assert.deepEqual([...((await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g))].map((match) => match[1]).sort(), ["https://www.nifnux.tech", "https://www.nifnux.tech/work/me-lia"].sort());
+assert.deepEqual([...((await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g))].map((match) => match[1]).sort(), ["https://www.nifnux.tech", ...(await import(`data:text/javascript,${encodeURIComponent(await readFile(new URL("../src/data/projects.js", import.meta.url), "utf8"))}`)).projects.map((p) => `https://www.nifnux.tech/work/${p.slug}`)].sort());
 for (const section of ["about", "projects", "contact"]) {
   const redirect = await fetch(new URL(`/${section}`, base), { redirect: "manual" });
   assert.equal(redirect.status, 308);

@@ -71,7 +71,7 @@ export default function MeLiaCaseStudyPage() {
           </div>
         </header>
 
-        <CaseStudyLinks placement='contents' />
+        <CaseStudyLinks placement='contents' sections={meLiaStages} />
 
         <div className='mt-4'>
           {meLiaStages.map((stage, index) => (

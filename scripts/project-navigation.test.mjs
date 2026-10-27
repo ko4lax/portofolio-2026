@@ -17,7 +17,7 @@ test("case-page global navigation targets homepage sections", async () => {
 });
 
 // A real link enables keyboard navigation and opening the case in a new tab.
-test("Me+Lia is a case-study link and other initial cards retain modal buttons", async () => {
+test("all initial project cards link to their documented project pages", async () => {
   const response = await fetch(new URL("/", base));
   assert.equal(response.status, 200);
   const html = await response.text();
@@ -29,8 +29,9 @@ test("Me+Lia is a case-study link and other initial cards retain modal buttons",
   assert.ok(meLia);
   assert.match(meLia, /<a(?=[^>]*href="\/work\/me-lia")(?=[^>]*aria-label="[^"]*Me\+Lia)[^>]*>/);
   assert.doesNotMatch(meLia, /<button\b/);
-  for (const card of cards.filter((entry) => entry !== meLia)) {
-    assert.match(card, /<button[^>]*aria-label="Project detail:/);
+  for (const card of cards) {
+    assert.match(card, /<a(?=[^>]*href="\/work\/[^"]+")(?=[^>]*aria-label="Project detail:)[^>]*>/);
+    assert.doesNotMatch(card, /<button\b/);
   }
   const nav = html.match(/<nav\b[\s\S]*?<\/nav>/)?.[0];
   for (const id of ["home", "about", "projects", "contact"]) {

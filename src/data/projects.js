@@ -1,6 +1,7 @@
 export const projects = [
   {
     "slug": "tiktok-shop",
+    "caseStudyHref": "/work/tiktok-shop",
     "title": "TikTok Shop — Emotional Design Study",
     "kicker": "Thesis · National Institute of Technology Bandung · 2026",
     "year": "2026",
@@ -61,6 +62,7 @@ export const projects = [
   },
   {
     "slug": "kerjaku",
+    "caseStudyHref": "/work/kerjaku",
     "title": "KerjaKu Job-Seeking App",
     "kicker": "Self-initiated concept · Mobile app · 2026",
     "year": "2026",
@@ -126,6 +128,7 @@ export const projects = [
   },
   {
     "slug": "lost-breakage",
+    "caseStudyHref": "/work/lost-breakage",
     "title": "Lost & Breakage Management System",
     "kicker": "Roma Osteria and Bar · Operations and product design · 2026",
     "year": "2026",
@@ -196,6 +199,7 @@ export const projects = [
   },
   {
     "slug": "metric-saas",
+    "caseStudyHref": "/work/metric-saas",
     "title": "Metric SaaS Dashboard Template",
     "kicker": "Self-initiated concept · SaaS analytics · 2026",
     "year": "2026",
@@ -261,6 +265,7 @@ export const projects = [
   },
   {
     "slug": "event-management",
+    "caseStudyHref": "/work/event-management",
     "title": "Event Management System for DPMPTSP West Java",
     "kicker": "DPMPTSP West Java Province · Web design · 2023",
     "year": "2023",
@@ -367,6 +372,7 @@ export const projects = [
   },
   {
     "slug": "warehouse",
+    "caseStudyHref": "/work/warehouse",
     "title": "Dutra Parahyangan Warehouse",
     "kicker": "Capstone · PT Digitalkultur Indonesia · Jun 2025",
     "year": "2025",
@@ -419,6 +425,7 @@ export const projects = [
   },
   {
     "slug": "waitwhatweb",
+    "caseStudyHref": "/work/waitwhatweb",
     "title": "WaitWhatWeb — Ten Client Brands",
     "kicker": "Agency · 2024",
     "year": "2024",
@@ -466,6 +473,7 @@ export const projects = [
   },
   {
     "slug": "faza-architect",
+    "caseStudyHref": "/work/faza-architect",
     "title": "Faza Architect — Portfolio UI",
     "kicker": "Digitalkultr · Freelance",
     "year": "2024",
@@ -511,6 +519,7 @@ export const projects = [
   },
   {
     "slug": "bellrock",
+    "caseStudyHref": "/work/bellrock",
     "title": "Bellrock Artisan Coffee — Storefront",
     "kicker": "Digitalkultr · Freelance",
     "year": "2024",
@@ -544,6 +553,7 @@ export const projects = [
   },
   {
     "slug": "siliwangi",
+    "caseStudyHref": "/work/siliwangi",
     "title": "CV Siliwangi Nusantara Telecom",
     "kicker": "Freelance · Apr 2025",
     "year": "2025",
@@ -581,6 +591,7 @@ export const projects = [
   },
   {
     "slug": "myrt",
+    "caseStudyHref": "/work/myrt",
     "title": "MyRT Population Data App",
     "kicker": "Course & exploration project",
     "year": "2023",
@@ -628,6 +639,7 @@ export const projects = [
   },
   {
     "slug": "woodcraft",
+    "caseStudyHref": "/work/woodcraft",
     "title": "WoodCraft — House of Wood",
     "kicker": "UAS RPL · Software engineering final exam · 2023",
     "year": "2023",
@@ -679,6 +691,7 @@ export const projects = [
   },
   {
     "slug": "bni-redesign",
+    "caseStudyHref": "/work/bni-redesign",
     "title": "BNI Mobile Banking Redesign",
     "kicker": "Course & exploration project",
     "year": "2023",
@@ -726,6 +739,7 @@ export const projects = [
   },
   {
     "slug": "vino-vault",
+    "caseStudyHref": "/work/vino-vault",
     "title": "Vino Vault",
     "kicker": "Software engineering course",
     "year": "2023",
@@ -773,6 +787,7 @@ export const projects = [
   },
   {
     "slug": "dramm",
+    "caseStudyHref": "/work/dramm",
     "title": "DRAMM Whisky Product Site",
     "kicker": "Web development course",
     "year": "2023",
